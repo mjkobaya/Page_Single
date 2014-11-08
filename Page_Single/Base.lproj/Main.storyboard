@@ -86,7 +86,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
-        <!--Inbox-->
+        <!--Pages-->
         <scene sceneID="UEm-ym-j4B">
             <objects>
                 <tableViewController id="t5e-nB-bke" sceneMemberID="viewController">
@@ -107,8 +107,11 @@
                             <outlet property="delegate" destination="t5e-nB-bke" id="TpG-AN-Me0"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Inbox" id="MOi-8C-5YW">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="usd-BR-Hbm">
+                    <navigationItem key="navigationItem" title="Pages" id="MOi-8C-5YW">
+                        <barButtonItem key="leftBarButtonItem" image="Settings" id="dGT-hc-Icv">
+                            <color key="tintColor" red="0.99215692280000001" green="0.52549022440000004" blue="0.16078431900000001" alpha="1" colorSpace="deviceRGB"/>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="usd-BR-Hbm">
                             <color key="tintColor" red="0.99215692281723022" green="0.52549022436141968" blue="0.16078431904315948" alpha="1" colorSpace="deviceRGB"/>
                             <connections>
                                 <segue destination="Kic-3Z-XXn" kind="show" id="5IE-GJ-vVf"/>
@@ -287,5 +290,8 @@
             <point key="canvasLocation" x="936" y="136"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Settings" width="20" height="20"/>
+    </resources>
     <color key="tintColor" red="0.99215692280000001" green="0.52549022440000004" blue="0.16078431900000001" alpha="1" colorSpace="deviceRGB"/>
 </document>
