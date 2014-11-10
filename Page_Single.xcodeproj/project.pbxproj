@@ -13,6 +13,7 @@
 		53041F681A0DD88E0099DC44 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53041F671A0DD88E0099DC44 /* Images.xcassets */; };
 		53041F6B1A0DD88E0099DC44 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53041F691A0DD88E0099DC44 /* LaunchScreen.xib */; };
 		53041F771A0DD88E0099DC44 /* Page_SingleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53041F761A0DD88E0099DC44 /* Page_SingleTests.swift */; };
+		5362C9C81A0F61F000D13318 /* LogIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5362C9C71A0F61F000D13318 /* LogIn.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		53041F701A0DD88E0099DC44 /* Page_SingleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Page_SingleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		53041F751A0DD88E0099DC44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		53041F761A0DD88E0099DC44 /* Page_SingleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page_SingleTests.swift; sourceTree = "<group>"; };
+		5362C9C71A0F61F000D13318 /* LogIn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogIn.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				53041F671A0DD88E0099DC44 /* Images.xcassets */,
 				53041F691A0DD88E0099DC44 /* LaunchScreen.xib */,
 				53041F5E1A0DD88E0099DC44 /* Supporting Files */,
+				5362C9C71A0F61F000D13318 /* LogIn.swift */,
 			);
 			path = Page_Single;
 			sourceTree = "<group>";
@@ -161,6 +164,7 @@
 				TargetAttributes = {
 					53041F5A1A0DD88E0099DC44 = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = 4NZP92642L;
 					};
 					53041F6F1A0DD88E0099DC44 = {
 						CreatedOnToolsVersion = 6.1;
@@ -213,6 +217,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				53041F631A0DD88E0099DC44 /* ViewController.swift in Sources */,
+				5362C9C81A0F61F000D13318 /* LogIn.swift in Sources */,
 				53041F611A0DD88E0099DC44 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -337,10 +342,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Page_Single/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -349,10 +357,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Page_Single/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -409,6 +420,7 @@
 				53041F7C1A0DD88E0099DC44 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		53041F7D1A0DD88E0099DC44 /* Build configuration list for PBXNativeTarget "Page_SingleTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +429,7 @@
 				53041F7F1A0DD88E0099DC44 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
