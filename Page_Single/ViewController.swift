@@ -36,6 +36,7 @@ class ViewController: UIViewController {
             
             // UIStoryboardSegue object
             let segue = UIStoryboardSegue(identifier: "logInSegue", source: ViewController(), destination: InboxTableViewController())
+            let user = User(id: 0, name: "Melinda Kobayashi", username: "Melinda", password: "password", department: "Oncology", rank: "Fellow", onDutyStatus: 0)
             shouldPerformSegueWithIdentifier("logInSegue", sender: sender)
         }
         
