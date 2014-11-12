@@ -67,7 +67,6 @@
 			children = (
 				53041F5D1A0DD88E0099DC44 /* Page_Single */,
 				53041F731A0DD88E0099DC44 /* Page_SingleTests */,
-				53041F5C1A0DD88E0099DC44 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -78,6 +77,7 @@
 				53041F701A0DD88E0099DC44 /* Page_SingleTests.xctest */,
 			);
 			name = Products;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		53041F5D1A0DD88E0099DC44 /* Page_Single */ = {
@@ -92,6 +92,7 @@
 				53041F5E1A0DD88E0099DC44 /* Supporting Files */,
 				5362C9C71A0F61F000D13318 /* LogIn.swift */,
 				5310EA341A12DCF8008DB984 /* User.swift */,
+				53041F5C1A0DD88E0099DC44 /* Products */,
 			);
 			path = Page_Single;
 			sourceTree = "<group>";

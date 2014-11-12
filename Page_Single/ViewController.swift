@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     var status = 0
     @IBAction func logInButton(sender: UIButton) {
         
+        // TEST OUTPUT
         println(usernameTextField.text)
         println(passwordTextField.text)
         
@@ -29,15 +30,18 @@ class ViewController: UIViewController {
         // If username and password match, segue into navigation controller
         if logInSession.match() == 1
         {
-            println("inside if statement")
             self.status = 1
+            
+            // Initialize a user
+            
+            // UIStoryboardSegue object
+            let segue = UIStoryboardSegue(identifier: "logInSegue", source: ViewController(), destination: InboxTableViewController())
             shouldPerformSegueWithIdentifier("logInSegue", sender: sender)
         }
         
         // Else, update with "Username or password are incorrect"
         else
         {
-            println("Username and password did not match.")
             shouldPerformSegueWithIdentifier("logInSegue", sender: sender)
         }
     }
