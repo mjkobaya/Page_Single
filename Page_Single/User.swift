@@ -12,23 +12,36 @@ import UIKit
 
 class User: NSObject {
     
-    let id: Int // ID number of the user from database
-    let name: String // Name of user
-    let username: String // User's username
-    let password: String // User's password
-    let department: String // User's hospital department
-    let rank: String // User's rank
-    let onDutyStatus: Int // Integer 0 -> off duty, 1 -> on duty
+    var id: Int // ID number of the user from database
+    var name: String // Name of user
+    var username: String // User's username
+    var password: String // User's password
+    var department: String // User's hospital department
+    var rank: String // User's rank
+    var onDutyStatus: Int // Integer 0 -> off duty, 1 -> on duty
     
-    init(id: Int)
+    init(i: Bool)
     {
-        self.id = id
+        self.id = 0
         self.name = ""
         self.username = ""
         self.password = ""
         self.department = ""
         self.rank = ""
         self.onDutyStatus = 0
+    }
+    
+    func addProperties(id: Int, name: String, username: String,
+        password: String, department: String, rank: String,
+        onDutyStatus: Int)
+    {
+        self.id = id
+        self.name = name
+        self.username = username
+        self.password = password
+        self.department = department
+        self.rank = rank
+        self.onDutyStatus = onDutyStatus
     }
    
 }

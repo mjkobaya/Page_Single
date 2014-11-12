@@ -14,7 +14,7 @@ class InboxTableViewController: UITableViewController {
     
     @IBAction func onDutySwitch(sender: UISwitch) {
         println("Enter function")
-        println(user.id)
+        println(user.name)
     }
     
     override func viewDidLoad() {

@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var errorLogInLabel: UILabel!
     
     var status = 0
-    var user = User(id: 0)
+    var user = User(i: true)
 
 //    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
 //    {
@@ -48,7 +48,7 @@ class ViewController: UIViewController {
             self.status = 1
             
             // Initialize a user
-            //let user = User(id: 0, name: "Melinda Kobayashi", username: "Melinda", password: "password", department: "Oncology", rank: "Fellow", onDutyStatus: 0)
+            user.addProperties(1, name: "Melinda Kobayashi", username: "Melinda", password: "password", department: "Oncology", rank: "Fellow", onDutyStatus: 0)
             shouldPerformSegueWithIdentifier("logInSegue", sender: sender)
         }
         
