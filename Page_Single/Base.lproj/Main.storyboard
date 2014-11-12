@@ -321,6 +321,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="compose" id="usd-BR-Hbm">
                             <color key="tintColor" red="0.99215692281723022" green="0.52549022436141968" blue="0.16078431904315948" alpha="1" colorSpace="deviceRGB"/>
                             <connections>
+                                <action selector="composeButton:" destination="t5e-nB-bke" id="xyJ-Ev-cuX"/>
                                 <segue destination="Kic-3Z-XXn" kind="show" id="5IE-GJ-vVf"/>
                             </connections>
                         </barButtonItem>

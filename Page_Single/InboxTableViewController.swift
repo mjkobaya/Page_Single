@@ -10,6 +10,9 @@ import UIKit
 
 class InboxTableViewController: UITableViewController {
 
+    @IBAction func composeButton(sender: UIBarButtonItem) {
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

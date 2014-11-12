@@ -37,6 +37,7 @@ class ViewController: UIViewController {
             // UIStoryboardSegue object
             let segue = UIStoryboardSegue(identifier: "logInSegue", source: ViewController(), destination: InboxTableViewController())
             let user = User(id: 0, name: "Melinda Kobayashi", username: "Melinda", password: "password", department: "Oncology", rank: "Fellow", onDutyStatus: 0)
+            prepareForSegue(segue, sender: sender)
             shouldPerformSegueWithIdentifier("logInSegue", sender: sender)
         }
         
@@ -47,6 +48,10 @@ class ViewController: UIViewController {
         }
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    {
+        
+    }
     override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool
     {
         if self.status == 1
