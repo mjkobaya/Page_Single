@@ -12,6 +12,7 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var errorLogInLabel: UILabel!
     
     var status = 0
     @IBAction func logInButton(sender: UIButton) {
@@ -50,6 +51,7 @@ class ViewController: UIViewController {
         
         else
         {
+            errorLogInLabel.hidden = false
             return false
         }
     }

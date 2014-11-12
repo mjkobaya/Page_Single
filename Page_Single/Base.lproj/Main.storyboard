@@ -206,6 +206,7 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="errorLogInLabel" destination="V98-u1-NO0" id="XI7-Gw-oPm"/>
                         <outlet property="passwordTextField" destination="2lQ-O3-216" id="y5L-Rr-2xe"/>
                         <outlet property="usernameTextField" destination="ZNT-jY-nqT" id="ADP-5V-KGM"/>
                     </connections>
@@ -239,9 +240,6 @@
                                         </fragment>
                                     </attributedString>
                                 </state>
-                                <connections>
-                                    <segue destination="vXZ-lx-hvc" kind="show" id="yz4-2d-cY0"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
