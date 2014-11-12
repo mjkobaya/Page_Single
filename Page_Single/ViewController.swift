@@ -16,6 +16,19 @@ class ViewController: UIViewController {
     
     var status = 0
     var user = User(id: 0)
+
+//    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
+//    {
+//        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+//        
+//        // Custom initialization
+//        var user: User
+//    }
+//    
+//    required init(coder aDecoder: (NSCoder!))
+//    {
+//        super.init(coder: aDecoder)
+//    }
     
     @IBAction func logInButton(sender: UIButton) {
         
@@ -35,11 +48,7 @@ class ViewController: UIViewController {
             self.status = 1
             
             // Initialize a user
-            
-            // UIStoryboardSegue object
-            //let segue = UIStoryboardSegue(identifier: "logInSegue", source: ViewController(), destination: InboxTableViewController())
             //let user = User(id: 0, name: "Melinda Kobayashi", username: "Melinda", password: "password", department: "Oncology", rank: "Fellow", onDutyStatus: 0)
-            //prepareForSegue(segue, sender: sender)
             shouldPerformSegueWithIdentifier("logInSegue", sender: sender)
         }
         
@@ -52,17 +61,12 @@ class ViewController: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
     {
+        // Pass info to InboxTableViewController
         if (segue.identifier == "logInSegue")
         {
-            println("check")
             let nav: AnyObject = segue.destinationViewController
             var svc = nav.topViewController as InboxTableViewController;
-            println("check2")
-            svc.toPass = self.status
-            println("check3")
-            
-            //var inboxViewController = segue.destinationViewController as InboxTableViewController
-            //inboxViewController.user = self.user
+            svc.user = self.user
         }
     }
     override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool
