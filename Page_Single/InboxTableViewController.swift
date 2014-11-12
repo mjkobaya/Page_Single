@@ -8,10 +8,13 @@
 
 import UIKit
 
-class InboxTableViewController: UITableViewController {
+class InboxTableViewController: UITableViewController, UITableViewDelegate,
+    UITableViewDataSource {
 
     var user: User!
+    var items: [String] = ["We", "Heart", "Swift"]
     
+    @IBOutlet var inboxTableView: UITableView!
     @IBAction func onDutySwitch(sender: UISwitch) {
         println("Enter function")
         println(user.name)
@@ -25,6 +28,8 @@ class InboxTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        self.inboxTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,24 +42,25 @@ class InboxTableViewController: UITableViewController {
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Potentially incomplete method implementation.
         // Return the number of sections.
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return 0
+        return 3
     }
 
-    /*
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as UITableViewCell
 
         // Configure the cell...
+        cell.textLabel.text = self.items[indexPath.row]
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
