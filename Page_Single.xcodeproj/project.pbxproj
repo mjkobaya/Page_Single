@@ -13,6 +13,7 @@
 		53041F681A0DD88E0099DC44 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53041F671A0DD88E0099DC44 /* Images.xcassets */; };
 		53041F6B1A0DD88E0099DC44 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53041F691A0DD88E0099DC44 /* LaunchScreen.xib */; };
 		53041F771A0DD88E0099DC44 /* Page_SingleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53041F761A0DD88E0099DC44 /* Page_SingleTests.swift */; };
+		5310EA351A12DCF8008DB984 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5310EA341A12DCF8008DB984 /* User.swift */; };
 		5362C9C81A0F61F000D13318 /* LogIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5362C9C71A0F61F000D13318 /* LogIn.swift */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +38,7 @@
 		53041F701A0DD88E0099DC44 /* Page_SingleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Page_SingleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		53041F751A0DD88E0099DC44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		53041F761A0DD88E0099DC44 /* Page_SingleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page_SingleTests.swift; sourceTree = "<group>"; };
+		5310EA341A12DCF8008DB984 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		5362C9C71A0F61F000D13318 /* LogIn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogIn.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -86,6 +88,7 @@
 				53041F691A0DD88E0099DC44 /* LaunchScreen.xib */,
 				53041F5E1A0DD88E0099DC44 /* Supporting Files */,
 				5362C9C71A0F61F000D13318 /* LogIn.swift */,
+				5310EA341A12DCF8008DB984 /* User.swift */,
 			);
 			path = Page_Single;
 			sourceTree = "<group>";
@@ -216,6 +219,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5310EA351A12DCF8008DB984 /* User.swift in Sources */,
 				53041F631A0DD88E0099DC44 /* ViewController.swift in Sources */,
 				5362C9C81A0F61F000D13318 /* LogIn.swift in Sources */,
 				53041F611A0DD88E0099DC44 /* AppDelegate.swift in Sources */,
