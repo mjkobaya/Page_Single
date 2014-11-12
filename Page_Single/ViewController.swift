@@ -15,6 +15,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var errorLogInLabel: UILabel!
     
     var status = 0
+    var user = User(id: 0)
+    
     @IBAction func logInButton(sender: UIButton) {
         
         // TEST OUTPUT
@@ -35,9 +37,9 @@ class ViewController: UIViewController {
             // Initialize a user
             
             // UIStoryboardSegue object
-            let segue = UIStoryboardSegue(identifier: "logInSegue", source: ViewController(), destination: InboxTableViewController())
-            let user = User(id: 0, name: "Melinda Kobayashi", username: "Melinda", password: "password", department: "Oncology", rank: "Fellow", onDutyStatus: 0)
-            prepareForSegue(segue, sender: sender)
+            //let segue = UIStoryboardSegue(identifier: "logInSegue", source: ViewController(), destination: InboxTableViewController())
+            //let user = User(id: 0, name: "Melinda Kobayashi", username: "Melinda", password: "password", department: "Oncology", rank: "Fellow", onDutyStatus: 0)
+            //prepareForSegue(segue, sender: sender)
             shouldPerformSegueWithIdentifier("logInSegue", sender: sender)
         }
         
@@ -50,7 +52,18 @@ class ViewController: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
     {
-        
+        if (segue.identifier == "logInSegue")
+        {
+            println("check")
+            let nav: AnyObject = segue.destinationViewController
+            var svc = nav.topViewController as InboxTableViewController;
+            println("check2")
+            svc.toPass = self.status
+            println("check3")
+            
+            //var inboxViewController = segue.destinationViewController as InboxTableViewController
+            //inboxViewController.user = self.user
+        }
     }
     override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool
     {

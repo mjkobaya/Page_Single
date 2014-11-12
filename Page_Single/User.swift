@@ -20,16 +20,15 @@ class User: NSObject {
     let rank: String // User's rank
     let onDutyStatus: Int // Integer 0 -> off duty, 1 -> on duty
     
-    init(id: Int, name: String, username: String, password: String,
-        department: String, rank: String, onDutyStatus: Int)
+    init(id: Int)
     {
         self.id = id
-        self.name = name
-        self.username = username
-        self.password = password
-        self.department = department
-        self.rank = rank
-        self.onDutyStatus = onDutyStatus
+        self.name = ""
+        self.username = ""
+        self.password = ""
+        self.department = ""
+        self.rank = ""
+        self.onDutyStatus = 0
     }
    
 }

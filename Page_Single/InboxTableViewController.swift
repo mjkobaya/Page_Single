@@ -10,7 +10,17 @@ import UIKit
 
 class InboxTableViewController: UITableViewController {
 
-    @IBAction func composeButton(sender: UIBarButtonItem) {
+    //var user: User!
+    var toPass:Int!
+    
+    @IBAction func onDutySwitch(sender: UISwitch) {
+        println("Enter function")
+        println(toPass)
+    }
+    @IBAction func composeButton(sender: UIBarButtonItem)
+    {
+        println("enter function")
+        println(toPass)
     }
     
     override func viewDidLoad() {
