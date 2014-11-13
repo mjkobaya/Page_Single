@@ -12,7 +12,7 @@ class InboxTableViewController: UITableViewController, UITableViewDelegate,
     UITableViewDataSource {
 
     var user: User!
-    var items: [String] = ["We", "Heart", "Swift"]
+    var items: [String] = ["page", "med", "app"]
     
     @IBOutlet var inboxTableView: UITableView!
     @IBAction func onDutySwitch(sender: UISwitch) {
@@ -30,6 +30,8 @@ class InboxTableViewController: UITableViewController, UITableViewDelegate,
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
         self.inboxTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        
+        // Get messages from database
     }
 
     override func didReceiveMemoryWarning() {
