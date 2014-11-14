@@ -9,5 +9,20 @@
 import UIKit
 
 class Database: NSObject {
-   
+    
+    let url: String
+    
+    init(url: String)
+    // url in 'http://page-40339.onmodulus.net' without forward slash at end'
+    {
+        self.url = url
+    }
+
+    // Login
+    func login(username: String, password: String) -> User
+    {
+        let url = self.url + "/mobile/login"
+        
+        return User(i: true)
+    }
 }
