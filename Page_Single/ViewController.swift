@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     
     var status = 0
     var user = User(i: true)
+    
 
 //    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
 //    {
@@ -59,6 +60,24 @@ class ViewController: UIViewController {
         }
     }
     
+   
+    
+    func textFieldShouldReturn(textField: UITextField!) -> Bool {
+        if (textField == usernameTextField)
+        {
+            passwordTextField.becomeFirstResponder()
+            //return true
+        }
+        
+        else if (textField == passwordTextField)
+        {
+            textField.resignFirstResponder()
+            //return true
+        }
+        
+        return true
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
     {
         // Pass info to InboxTableViewController
@@ -86,6 +105,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        usernameTextField.delegate = self
+        passwordTextField.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
