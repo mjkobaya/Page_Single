@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -154,11 +155,11 @@
                                 <exclude reference="V98-u1-NO0"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="i2L-N6-mvl"/>
-                                <exclude reference="yhW-7L-nRT"/>
                                 <exclude reference="16E-dv-JYw"/>
                                 <exclude reference="U3M-wP-ERk"/>
                                 <exclude reference="YcL-NQ-4Y0"/>
+                                <exclude reference="i2L-N6-mvl"/>
+                                <exclude reference="yhW-7L-nRT"/>
                                 <exclude reference="3BV-sF-a27"/>
                                 <exclude reference="4Ni-mu-YQ0"/>
                                 <exclude reference="CxZ-qG-Avz"/>
@@ -176,13 +177,13 @@
                                 <include reference="V98-u1-NO0"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="16E-dv-JYw"/>
+                                <include reference="U3M-wP-ERk"/>
+                                <include reference="YcL-NQ-4Y0"/>
                                 <exclude reference="DeJ-1r-PPq"/>
                                 <exclude reference="bTf-MR-uLJ"/>
                                 <include reference="i2L-N6-mvl"/>
                                 <include reference="yhW-7L-nRT"/>
-                                <include reference="16E-dv-JYw"/>
-                                <include reference="U3M-wP-ERk"/>
-                                <include reference="YcL-NQ-4Y0"/>
                                 <include reference="3BV-sF-a27"/>
                                 <include reference="4Ni-mu-YQ0"/>
                                 <include reference="CxZ-qG-Avz"/>
@@ -260,7 +261,7 @@
         <scene sceneID="UEm-ym-j4B">
             <objects>
                 <tableViewController id="t5e-nB-bke" customClass="InboxTableViewController" customModule="Page_Single" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Olx-xe-7PO">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="67" sectionHeaderHeight="22" sectionFooterHeight="22" id="Olx-xe-7PO">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -301,11 +302,45 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="qop-DU-Vc4">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="subtitleCell" textLabel="zLY-Kj-La1" detailTextLabel="4bt-uP-hOj" rowHeight="67" style="IBUITableViewCellStyleSubtitle" id="9Jg-aI-W3E">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qop-DU-Vc4" id="3AE-il-5E5">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9Jg-aI-W3E" id="BvF-3y-ifa">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zLY-Kj-La1">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <attributedString key="attributedText">
+                                                <fragment content="Title">
+                                                    <attributes>
+                                                        <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <font key="NSFont" size="17" name="HelveticaNeue-Bold"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                            <nil key="highlightedColor"/>
+                                            <variation key="heightClass=regular-widthClass=compact">
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            </variation>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4bt-uP-hOj">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <attributedString key="attributedText">
+                                                <fragment content="Subtitle">
+                                                    <attributes>
+                                                        <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <font key="NSFont" size="17" name="HelveticaNeue"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                            <nil key="highlightedColor"/>
+                                            <variation key="heightClass=regular-widthClass=compact">
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            </variation>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -335,7 +370,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5yr-V1-Mxr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="936" y="908"/>
+            <point key="canvasLocation" x="936" y="907.5"/>
         </scene>
         <!--Contact-->
         <scene sceneID="7rX-IG-YAh">

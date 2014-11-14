@@ -57,13 +57,15 @@ class InboxTableViewController: UITableViewController, UITableViewDelegate,
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as UITableViewCell
+        var cell = tableView.dequeueReusableCellWithIdentifier("subtitleCell", forIndexPath: indexPath) as UITableViewCell
         
         // Get messages array
         var messagesArray = self.messages.getUserMessages()
 
         // Configure the cell...
         cell.textLabel.text = messagesArray[indexPath.row]["senderName"]
+        var detailText = cell.detailTextLabel
+        detailText!.text = messagesArray[indexPath.row]["message"]
 
         return cell
     }

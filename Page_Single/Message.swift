@@ -17,7 +17,7 @@ class Message: NSObject {
     
     // Test messages
     var messages: [[String : String]] = [["senderName" : "Dr. Misha Wong",
-        "message" : "Hello this is a test"], ["senderName" : "Dr. Claire Wong",
+        "message" : "Hello this is a test testing length of message how much text will this show"], ["senderName" : "Dr. Claire Wong",
         "message" : "Patient lalala test"]]
     
     func getUserMessages() -> [[String : String]]
