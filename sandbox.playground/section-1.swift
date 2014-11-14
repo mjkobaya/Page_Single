@@ -80,3 +80,8 @@ class Database: NSObject {
         
     }
 }
+
+let database = Database(url: "http://page-40339.onmodulus.net/mobile/login")
+database.login(username: "Melinda", password: "password") {(succeeded: Bool, msg: String) -> () in
+
+    println(succeeded)}
