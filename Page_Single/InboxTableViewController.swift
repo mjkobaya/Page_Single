@@ -12,7 +12,9 @@ class InboxTableViewController: UITableViewController, UITableViewDelegate,
     UITableViewDataSource {
 
     var user: User!
-    var items: [String] = ["page", "med", "app"]
+    //var items: [String] = ["page", "med", "app"]
+    
+    var messages = Message()
     
     @IBOutlet var inboxTableView: UITableView!
     @IBAction func onDutySwitch(sender: UISwitch) {
@@ -50,15 +52,18 @@ class InboxTableViewController: UITableViewController, UITableViewDelegate,
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return 3
+        return self.messages.getNumberMessages()
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as UITableViewCell
+        
+        // Get messages array
+        var messagesArray = self.messages.getUserMessages()
 
         // Configure the cell...
-        cell.textLabel.text = self.items[indexPath.row]
+        cell.textLabel.text = messagesArray[indexPath.row]["senderName"]
 
         return cell
     }
