@@ -64,8 +64,9 @@ class InboxTableViewController: UITableViewController, UITableViewDelegate,
 
         // Configure the cell...
         cell.textLabel.text = messagesArray[indexPath.row]["senderName"]
-        var detailText = cell.detailTextLabel
-        detailText!.text = messagesArray[indexPath.row]["message"]
+        // Unwrap cell.detailTextLabel with ! when know it's not nil b/c of 
+        // ? option on the cell type
+        cell.detailTextLabel!.text = messagesArray[indexPath.row]["message"]
 
         return cell
     }
