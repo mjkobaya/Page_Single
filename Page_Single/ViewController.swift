@@ -16,7 +16,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var errorLogInLabel: UILabel!
     
     var status = 0
-    let user = User()
+    var user = User()
     
     // When Log In button is pressed
     @IBAction func logInButton(sender: UIButton) {
@@ -25,57 +25,45 @@ class ViewController: UIViewController, UITextFieldDelegate {
         println(usernameTextField.text)
         println(passwordTextField.text)
         
-        // Get username and password from text fields
-        let logInSession = LogIn(username: usernameTextField.text, password: passwordTextField.text)
-        
-        // If username and password match, segue into navigation controller
-        if logInSession.match() == 1
-        {
-            //self.status = 1
-            
-            // Initialize a user
-            let database = Database(url: "http://page-40339.onmodulus.net")
-            let b = database.login(username: "Melind", password: "password")
-                {(succeeded: Bool, user: User) -> () in
+        // Ask database if login was a success
+        let database = Database(url: "http://page-40339.onmodulus.net")
+        database.login(username: usernameTextField.text, password: passwordTextField.text)
+            {(succeeded: Bool, user: User) -> () in
+                
+                // Move to the UI thread
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    
+                    println("succeeded is \(succeeded)")
                     if (succeeded)
                     {
-                        self.status = 1
-                        self.shouldPerformSegueWithIdentifier("logInSegue", sender: sender)
+                        self.user = user
+                        self.performSegueWithIdentifier("logInSegue", sender: sender)
                     }
                     else
                     {
-                        self.shouldPerformSegueWithIdentifier("logInSegue", sender: sender)
+                        self.errorLogInLabel.hidden = false
                     }
-                }
-            println(b)
-            //shouldPerformSegueWithIdentifier("logInSegue", sender: sender)
-        }
-        
-        // Else, update with "Username or password are incorrect"
-        else
-        {
-            //shouldPerformSegueWithIdentifier("logInSegue", sender: sender)
-        }
+                })
+            }
     }
     
    
-    
+    // Configure the return key to go to next text field or hide keyboard
     func textFieldShouldReturn(textField: UITextField!) -> Bool {
         if (textField == usernameTextField)
         {
             passwordTextField.becomeFirstResponder()
-            //return true
         }
         
         else if (textField == passwordTextField)
         {
             textField.resignFirstResponder()
-            //return true
         }
         
         return true
     }
     
+    // Pass the User object to the InboxTableViewController
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
     {
         // Pass info to InboxTableViewController
@@ -86,24 +74,35 @@ class ViewController: UIViewController, UITextFieldDelegate {
             svc.user = self.user
         }
     }
+    
+    // Perform the segue if status is 1. Show invalid username and password
+    // label if status is 0.
+    // Need to keep override function to override default to allow all segues
     override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool
     {
-        if self.status == 1
-        {
-            return true
-        }
-        
-        else
-        {
-            errorLogInLabel.hidden = false
-            return false
-        }
+//        if self.status == 2
+//        {
+//            println("status 1 got called")
+//            return true
+//        }
+//        
+//        else if self.status == 1
+//        {
+//            self.errorLogInLabel.hidden = false
+//            return false
+//        }
+//        else
+//        {
+//            return false
+//        }
+        return false
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        // Set ViewController as delegate for text fields
         usernameTextField.delegate = self
         passwordTextField.delegate = self
     }

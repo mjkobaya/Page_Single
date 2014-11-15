@@ -10,17 +10,18 @@ import UIKit
 
 class Database: NSObject {
     
+    // Member variables and constants
     let url: String
-    var loginSuccess = false
     
+    // Initialize with url of host database
     init(url: String)
-        // url in 'http://page-40339.onmodulus.net' without forward slash at end'
     {
+        // 'http://page-40339.onmodulus.net' without forward slash at end'
         self.url = url
     }
     
     // Login
-    func login(#username: String, password: String, postCompleted: (succeeded: Bool, user: User) -> ()) -> Bool
+    func login(#username: String, password: String, postCompleted: (succeeded: Bool, user: User) -> ())
     {
         // http://page-40339.onmodulus.net/mobile/login
         let url: String = self.url + "/mobile/login"
@@ -61,25 +62,29 @@ class Database: NSObject {
                 println("Error could not parse JSON: '\(jsonStr)'")
             }
             else {
-                // The JSONObjectWithData constructor didn't return an error. But, we should still
-                // check and make sure that json has a value using optional binding.
+                // The JSONObjectWithData constructor didn't return an error.
+                // Check that the json has a value and that the login was
+                // successful.
                 let user = User()
                 
                 if let parseJSON = json {
                     // Okay, the parsedJSON is here
+                    // Check that there's an _id key which means the login
+                    // succeeded.
                     if let id: AnyObject = json!["_id"]
                     {
                         let userDictionary = ["username" : username]
                         user.addProperties(infoDict: userDictionary)
-                        postCompleted(succeeded: true, user: user)
-                        self.loginSuccess = true
                         println("Successfully logged in")
+                        postCompleted(succeeded: true, user: user)
                         return
                     }
                     else
                     {
-                        println("Invalid username")
+                        let error: AnyObject? = json!["error"] as NSString
+                        println("Error: \(error)")
                         postCompleted(succeeded: false, user: user)
+                        return
                     }
                 }
                 else {
@@ -92,7 +97,6 @@ class Database: NSObject {
         })
         
         task.resume()
-        return true
     }
 
 }
