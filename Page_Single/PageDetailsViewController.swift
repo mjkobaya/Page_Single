@@ -10,10 +10,18 @@ import UIKit
 
 class PageDetailsViewController: UIViewController {
 
+    @IBOutlet weak var pageContentsLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+//        let labelFrame = CGRectMake(16, 183, 368, 602)
+//        let label = UIView(frame: labelFrame)
+//        label.backgroundColor = UIColor.orangeColor()
+//        self.view.addSubview(label)
+        
     }
 
     override func didReceiveMemoryWarning() {
