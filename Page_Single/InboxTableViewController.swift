@@ -19,7 +19,7 @@ class InboxTableViewController: UITableViewController, UITableViewDelegate,
     @IBOutlet var inboxTableView: UITableView!
     @IBAction func onDutySwitch(sender: UISwitch) {
         println("Enter function")
-        println(user.name)
+        println(user.username)
     }
     
     override func viewDidLoad() {

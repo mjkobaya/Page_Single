@@ -10,58 +10,51 @@ import UIKit
 
 class ViewController: UIViewController, UITextFieldDelegate {
 
+    // Member variables and constants
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var errorLogInLabel: UILabel!
     
     var status = 0
-    var user = User()
+    let user = User()
     
-
-//    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-//    {
-//        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-//        
-//        // Custom initialization
-//        var user: User
-//    }
-//    
-//    required init(coder aDecoder: (NSCoder!))
-//    {
-//        super.init(coder: aDecoder)
-//    }
-    
+    // When Log In button is pressed
     @IBAction func logInButton(sender: UIButton) {
         
         // TEST OUTPUT
         println(usernameTextField.text)
         println(passwordTextField.text)
         
-        // On Log In button click check database to see if user name
-        // and password match
-        // For now, hard code
-        
+        // Get username and password from text fields
         let logInSession = LogIn(username: usernameTextField.text, password: passwordTextField.text)
         
         // If username and password match, segue into navigation controller
         if logInSession.match() == 1
         {
-            self.status = 1
+            //self.status = 1
             
             // Initialize a user
             let database = Database(url: "http://page-40339.onmodulus.net")
-            database.login(username: "Melinda", password: "password")
-                {(succeeded: Bool, user: User) -> User in
-                    println("succceeded is \(succeeded)")
-                    return user
+            let b = database.login(username: "Melind", password: "password")
+                {(succeeded: Bool, user: User) -> () in
+                    if (succeeded)
+                    {
+                        self.status = 1
+                        self.shouldPerformSegueWithIdentifier("logInSegue", sender: sender)
+                    }
+                    else
+                    {
+                        self.shouldPerformSegueWithIdentifier("logInSegue", sender: sender)
+                    }
                 }
-            shouldPerformSegueWithIdentifier("logInSegue", sender: sender)
+            println(b)
+            //shouldPerformSegueWithIdentifier("logInSegue", sender: sender)
         }
         
         // Else, update with "Username or password are incorrect"
         else
         {
-            shouldPerformSegueWithIdentifier("logInSegue", sender: sender)
+            //shouldPerformSegueWithIdentifier("logInSegue", sender: sender)
         }
     }
     

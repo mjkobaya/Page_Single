@@ -11,6 +11,7 @@ import UIKit
 class Database: NSObject {
     
     let url: String
+    var loginSuccess = false
     
     init(url: String)
         // url in 'http://page-40339.onmodulus.net' without forward slash at end'
@@ -19,7 +20,7 @@ class Database: NSObject {
     }
     
     // Login
-    func login(#username: String, password: String, postCompleted: (succeeded: Bool, user: User) -> User)
+    func login(#username: String, password: String, postCompleted: (succeeded: Bool, user: User) -> ()) -> Bool
     {
         // http://page-40339.onmodulus.net/mobile/login
         let url: String = self.url + "/mobile/login"
@@ -45,8 +46,10 @@ class Database: NSObject {
             var err: NSError?
             var json = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: &err) as NSDictionary?
             
-            var id: NSString = json!["_id"] as NSString
-            println("id is \(id)")
+            // How to access the values in dictionary. Must be downcasted type
+            // get rid of Optional() wrapping
+            //var id: NSString = json!["_id"] as NSString
+            //println("id is \(id)")
             
             
             var msg = "No message"
@@ -69,9 +72,15 @@ class Database: NSObject {
                         let userDictionary = ["username" : username]
                         user.addProperties(infoDict: userDictionary)
                         postCompleted(succeeded: true, user: user)
+                        self.loginSuccess = true
                         println("Successfully logged in")
+                        return
                     }
-                    return
+                    else
+                    {
+                        println("Invalid username")
+                        postCompleted(succeeded: false, user: user)
+                    }
                 }
                 else {
                     // Woa, okay the json object was nil, something went worng. Maybe the server isn't running?
@@ -83,7 +92,7 @@ class Database: NSObject {
         })
         
         task.resume()
-        
+        return true
     }
 
 }
