@@ -19,7 +19,7 @@ class Database: NSObject {
     }
     
     // Login
-    func login(#username: String, password: String, postCompleted : (succeeded: Bool, msg: String) -> ())
+    func login(#username: String, password: String, postCompleted: (succeeded: Bool, user: User) -> User)
     {
         // http://page-40339.onmodulus.net/mobile/login
         let url: String = self.url + "/mobile/login"
@@ -43,44 +43,48 @@ class Database: NSObject {
             var strData = NSString(data: data, encoding: NSUTF8StringEncoding)
             println("Body: \(strData)")
             var err: NSError?
-            var json = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: &err) as NSDictionary
+            var json = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: &err) as NSDictionary?
             
-            var id: NSString = json["_id"] as NSString
+            var id: NSString = json!["_id"] as NSString
             println("id is \(id)")
             
             
             var msg = "No message"
             
             // Did the JSONObjectWithData constructor return an error? If so, log the error to the console
-//            if(err != nil) {
-//                println(err!.localizedDescription)
-//                let jsonStr = NSString(data: data, encoding: NSUTF8StringEncoding)
-//                println("Error could not parse JSON: '\(jsonStr)'")
-//                postCompleted(succeeded: false, msg: "Error")
-//            }
-//            else {
-//                // The JSONObjectWithData constructor didn't return an error. But, we should still
-//                // check and make sure that json has a value using optional binding.
-//                if let parseJSON = json {
-//                    // Okay, the parsedJSON is here, let's get the value for 'success' out of it
-//                    if let success = parseJSON["success"] as? Bool {
-//                        println("Succes: \(success)")
-//                        postCompleted(succeeded: success, msg: "Logged in.")
-//                    }
-//                    return
-//                }
-//                else {
-//                    // Woa, okay the json object was nil, something went worng. Maybe the server isn't running?
-//                    let jsonStr = NSString(data: data, encoding: NSUTF8StringEncoding)
-//                    println("Error could not parse JSON: \(jsonStr)")
-//                    postCompleted(succeeded: false, msg: "Error")
-//                }
-//            }
+            if(err != nil) {
+                println(err!.localizedDescription)
+                let jsonStr = NSString(data: data, encoding: NSUTF8StringEncoding)
+                println("Error could not parse JSON: '\(jsonStr)'")
+            }
+            else {
+                // The JSONObjectWithData constructor didn't return an error. But, we should still
+                // check and make sure that json has a value using optional binding.
+                let user = User()
+                
+                if let parseJSON = json {
+                    // Okay, the parsedJSON is here
+                    if let id: AnyObject = json!["_id"]
+                    {
+                        let userDictionary = ["username" : username]
+                        user.addProperties(infoDict: userDictionary)
+                        postCompleted(succeeded: true, user: user)
+                        println("Successfully logged in")
+                    }
+                    return
+                }
+                else {
+                    // Woa, okay the json object was nil, something went worng. Maybe the server isn't running?
+                    let jsonStr = NSString(data: data, encoding: NSUTF8StringEncoding)
+                    println("Error could not parse JSON: \(jsonStr)")
+                    postCompleted(succeeded: false, user: user)
+                }
+            }
         })
         
         task.resume()
         
-        //println(task.response)
-        
     }
+
 }
+

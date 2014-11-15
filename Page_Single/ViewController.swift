@@ -15,7 +15,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var errorLogInLabel: UILabel!
     
     var status = 0
-    var user = User(i: true)
+    var user = User()
     
 
 //    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
@@ -49,11 +49,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
             self.status = 1
             
             // Initialize a user
-            user.addProperties(1, name: "Melinda Kobayashi", username: "Melinda", password: "password", department: "Oncology", rank: "Fellow", onDutyStatus: 0)
             let database = Database(url: "http://page-40339.onmodulus.net")
-            database.login(username: "Melinda", password: "password") {(succeeded: Bool, msg: String) -> () in
-                
-                println("succceeded is \(succeeded)")}
+            database.login(username: "Melinda", password: "password")
+                {(succeeded: Bool, user: User) -> User in
+                    println("succceeded is \(succeeded)")
+                    return user
+                }
             shouldPerformSegueWithIdentifier("logInSegue", sender: sender)
         }
         
