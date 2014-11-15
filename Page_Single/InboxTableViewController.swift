@@ -12,14 +12,15 @@ class InboxTableViewController: UITableViewController, UITableViewDelegate,
     UITableViewDataSource {
 
     var user: User!
-    //var items: [String] = ["page", "med", "app"]
+    var database: Database!
+    var messages = [Dictionary<String, String>()]
     
-    var messages = Message()
+    let items = [["Dr. Misha Wong", "Hello test message"], ["more testing", "page contents length of message should carry off"]]
     
     @IBOutlet var inboxTableView: UITableView!
     @IBAction func onDutySwitch(sender: UISwitch) {
-        println("Enter function")
-        println(user.username)
+        println("onDutySwitch")
+        println("user.username is \(user.username)")
     }
     
     override func viewDidLoad() {
@@ -31,9 +32,27 @@ class InboxTableViewController: UITableViewController, UITableViewDelegate,
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
-        self.inboxTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        // Register the class to control the cell (only do for custom classes)
+        //self.inboxTableView.registerClass(UITableViewCell.self,
+            //forCellReuseIdentifier: "subtitleCell")
         
         // Get messages from database
+        database.getMessages(username: user.username) { (succeeded, messages) -> () in
+            
+            // Move to the UI thread
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                
+                println("succeeded is \(succeeded)")
+                if (succeeded)
+                {
+                    self.messages = messages as Array<Dictionary<String, String>>
+                }
+                else
+                {
+                    println("Something went wrong")
+                }
+            })
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -52,21 +71,25 @@ class InboxTableViewController: UITableViewController, UITableViewDelegate,
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return self.messages.getNumberMessages()
+        //return self.messages.count
+        return 2
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCellWithIdentifier("subtitleCell", forIndexPath: indexPath) as UITableViewCell
-        
-        // Get messages array
-        var messagesArray = self.messages.getUserMessages()
 
         // Configure the cell...
-        cell.textLabel.text = messagesArray[indexPath.row]["senderName"]
+        //cell.textLabel.text = self.messages[indexPath.row]["originalSender"]
         // Unwrap cell.detailTextLabel with ! when know it's not nil b/c of 
         // ? option on the cell type
-        cell.detailTextLabel!.text = messagesArray[indexPath.row]["message"]
+        //cell.detailTextLabel!.text = self.messages[indexPath.row]["message"]
+        
+        // Configure the cell...
+        cell.textLabel.text = self.items[indexPath.row][0]
+        // Unwrap cell.detailTextLabel with ! when know it's not nil b/c of
+        // ? option on the cell type
+        cell.detailTextLabel!.text = self.items[indexPath.row][1]
 
         return cell
     }

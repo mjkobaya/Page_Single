@@ -98,6 +98,170 @@ class Database: NSObject {
         
         task.resume()
     }
+    
+    // Send message
+    func sendMessage(#sender: String, receiver: String, message: String,
+        postCompleted: (succeeded: Bool) -> ())
+    {
+        // http://page-40339.onmodulus.net/mobile/messages
+        let url: String = self.url + "/mobile/messages"
+        let method = "POST"
+        let nsurl = NSURL(string: url)
+        
+        var request = NSMutableURLRequest(URL: nsurl!)
+        var session = NSURLSession.sharedSession()
+        request.HTTPMethod = method
+        
+        var params = ["originalSender" : sender, "receiver" : receiver,
+            message : message]
+        
+        var err: NSError?
+        request.HTTPBody = NSJSONSerialization.dataWithJSONObject(params,
+            options: nil, error: &err)
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        
+        var task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
+            println("Response: \(response)")
+            var strData = NSString(data: data, encoding: NSUTF8StringEncoding)
+            println("Body: \(strData)")
+            var err: NSError?
+            var json = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: &err) as NSDictionary?
+            
+            // How to access the values in dictionary. Must be downcasted type
+            // get rid of Optional() wrapping
+            //var id: NSString = json!["_id"] as NSString
+            //println("id is \(id)")
+            
+            
+            var msg = "No message"
+            
+            // Did the JSONObjectWithData constructor return an error? If so, log the error to the console
+            if(err != nil) {
+                println(err!.localizedDescription)
+                let jsonStr = NSString(data: data, encoding: NSUTF8StringEncoding)
+                println("Error could not parse JSON: '\(jsonStr)'")
+            }
+            else {
+                // The JSONObjectWithData constructor didn't return an error.
+                // Check that the json has a value and that the login was
+                // successful.
+                
+                if let parseJSON = json {
+                    // Okay, the parsedJSON is here
+                    // Check that there's an _id key which means the login
+                    // succeeded.
+//                    if let message: AnyObject = json!["message"]
+//                    {
+//                        println("Successfully posted message")
+//                        postCompleted(succeeded: true)
+//                        return
+//                    }
+                    // Not currently any way to check if the message was posted
+                    // or not.
+//                    else
+//                    {
+//                        let error: AnyObject? = json!["error"] as NSString
+//                        println("Error: \(error)")
+//                        postCompleted(succeeded: false, user: user)
+//                        return
+//                    }
+                    println("Message posted")
+                    return
+                }
+                else {
+                    // Woa, okay the json object was nil, something went worng. Maybe the server isn't running?
+                    let jsonStr = NSString(data: data, encoding: NSUTF8StringEncoding)
+                    println("Error could not parse JSON: \(jsonStr)")
+                    postCompleted(succeeded: false)
+                }
+            }
+        })
+        
+        task.resume()
+    }
+    
+
+    // Get messages
+    func getMessages(#username: String,
+        postCompleted: (succeeded: Bool, messages: AnyObject) -> ())
+    {
+        // http://page-40339.onmodulus.net/mobile/messages?email=Melinda
+        let url: String = self.url + "/mobile/messages?email=" + username
+        let method = "GET"
+        let nsurl = NSURL(string: url)
+        
+        var request = NSMutableURLRequest(URL: nsurl!)
+        var session = NSURLSession.sharedSession()
+        request.HTTPMethod = method
+        
+        var params = ["email" : username]
+        
+        var err: NSError?
+        request.HTTPBody = NSJSONSerialization.dataWithJSONObject(params,
+            options: nil, error: &err)
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        
+        var task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
+            println("Response: \(response)")
+            var strData = NSString(data: data, encoding: NSUTF8StringEncoding)
+            println("Body: \(strData)")
+            var err: NSError?
+            var json = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: &err) as NSArray?
+            
+            // How to access the values in dictionary. Must be downcasted type
+            // get rid of Optional() wrapping
+            //var id: NSString = json!["_id"] as NSString
+            //println("id is \(id)")
+            
+            
+            var msg = "No message"
+            
+            // Did the JSONObjectWithData constructor return an error? If so, log the error to the console
+            if(err != nil) {
+                println(err!.localizedDescription)
+                let jsonStr = NSString(data: data, encoding: NSUTF8StringEncoding)
+                println("Error could not parse JSON: '\(jsonStr)'")
+            }
+            else {
+                // The JSONObjectWithData constructor didn't return an error.
+                // Check that the json has a value and that the login was
+                // successful.
+                
+                if let parseJSON = json {
+                // Okay, the parsedJSON is here
+                // Check that there's an _id key which means the login
+                // succeeded.
+                    //if let message: AnyObject = json[0]
+                    //{
+                        println("Successfully got messages")
+                        postCompleted(succeeded: true, messages: json! as Array<Dictionary<String, String>>)
+                        return
+                    //}
+                // Not currently any way to check if the message was posted
+                // or not.
+//                    else
+//                    {
+//                        let error: AnyObject? = json!["error"] as NSString
+//                        println("Error: \(error)")
+//                        postCompleted(succeeded: false, user: user)
+//                        return
+//                    }
+                }
+                else {
+                    // Woa, okay the json object was nil, something went worng. Maybe the server isn't running?
+                    let jsonStr = NSString(data: data, encoding: NSUTF8StringEncoding)
+                    println("Error could not parse JSON: \(jsonStr)")
+                    postCompleted(succeeded: false, messages: json! as NSArray)
+                }
+            }
+        })
+        
+        task.resume()
+        
+        
+    }
 
 }
 

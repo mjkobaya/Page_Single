@@ -17,6 +17,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     var status = 0
     var user = User()
+    let database = Database(url: "http://page-40339.onmodulus.net")
     
     // When Log In button is pressed
     @IBAction func logInButton(sender: UIButton) {
@@ -26,8 +27,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         println(passwordTextField.text)
         
         // Ask database if login was a success
-        let database = Database(url: "http://page-40339.onmodulus.net")
-        database.login(username: usernameTextField.text, password: passwordTextField.text)
+        self.database.login(username: usernameTextField.text, password: passwordTextField.text)
             {(succeeded: Bool, user: User) -> () in
                 
                 // Move to the UI thread
@@ -72,6 +72,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             let nav: AnyObject = segue.destinationViewController
             var svc = nav.topViewController as InboxTableViewController;
             svc.user = self.user
+            svc.database = self.database
         }
     }
     
