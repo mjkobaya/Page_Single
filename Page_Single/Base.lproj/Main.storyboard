@@ -11,7 +11,7 @@
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="Page_" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -226,6 +226,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Fm3-Oq-jzW"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="GOA-r7-AQm">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -259,6 +260,9 @@
                                         </fragment>
                                     </attributedString>
                                 </state>
+                                <connections>
+                                    <action selector="logOutButtonPressed:" destination="uUK-ns-bPm" eventType="touchUpInside" id="87U-mn-96s"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -269,9 +273,16 @@
                             <constraint firstItem="jE8-mr-zq2" firstAttribute="top" secondItem="e98-MP-kwv" secondAttribute="bottom" constant="462" id="uUr-8U-P3r"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Settings" id="VLm-CK-gpF"/>
+                    <navigationItem key="navigationItem" title="Settings" id="VLm-CK-gpF">
+                        <barButtonItem key="leftBarButtonItem" title="Log Out" id="BQn-2G-GjO">
+                            <connections>
+                                <segue destination="lHe-Au-FMC" kind="unwind" unwindAction="unwindToLogin:" id="7dt-xi-q64"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QLl-Zc-e0Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="lHe-Au-FMC" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="219" y="908"/>
         </scene>
@@ -585,6 +596,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Fk4-26-IfR"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="1jF-Zh-zph">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y75-n3-k3G">
@@ -716,11 +728,7 @@
                                 <exclude reference="OTA-F4-ow6"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="4SD-uE-HvK"/>
-                                <exclude reference="QBz-w7-ARL"/>
-                                <exclude reference="jPF-Ld-1cc"/>
-                                <exclude reference="mGs-X1-6xx"/>
-                                <exclude reference="zer-KQ-d0K"/>
+                                <exclude reference="h16-tP-V0i"/>
                                 <exclude reference="2nf-kb-G99"/>
                                 <exclude reference="UMY-HT-TwY"/>
                                 <exclude reference="ZpT-9P-PLy"/>
@@ -728,11 +736,15 @@
                                 <exclude reference="jcb-ry-Fdw"/>
                                 <exclude reference="I4w-yT-usP"/>
                                 <exclude reference="RvA-Xs-MuP"/>
+                                <exclude reference="4SD-uE-HvK"/>
+                                <exclude reference="QBz-w7-ARL"/>
+                                <exclude reference="jPF-Ld-1cc"/>
+                                <exclude reference="mGs-X1-6xx"/>
+                                <exclude reference="zer-KQ-d0K"/>
                                 <exclude reference="MqA-mU-uKP"/>
                                 <exclude reference="Zng-go-E5M"/>
                                 <exclude reference="vxB-bq-YM3"/>
                                 <exclude reference="zCX-D6-vNR"/>
-                                <exclude reference="h16-tP-V0i"/>
                                 <exclude reference="7Xi-My-cHI"/>
                                 <exclude reference="XOx-vI-ceV"/>
                                 <exclude reference="gmm-fa-Sfj"/>
@@ -749,11 +761,7 @@
                                 <include reference="OTA-F4-ow6"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="4SD-uE-HvK"/>
-                                <include reference="QBz-w7-ARL"/>
-                                <include reference="jPF-Ld-1cc"/>
-                                <include reference="mGs-X1-6xx"/>
-                                <include reference="zer-KQ-d0K"/>
+                                <include reference="h16-tP-V0i"/>
                                 <include reference="2nf-kb-G99"/>
                                 <include reference="UMY-HT-TwY"/>
                                 <include reference="ZpT-9P-PLy"/>
@@ -761,11 +769,15 @@
                                 <include reference="jcb-ry-Fdw"/>
                                 <include reference="I4w-yT-usP"/>
                                 <include reference="RvA-Xs-MuP"/>
+                                <include reference="4SD-uE-HvK"/>
+                                <include reference="QBz-w7-ARL"/>
+                                <include reference="jPF-Ld-1cc"/>
+                                <include reference="mGs-X1-6xx"/>
+                                <include reference="zer-KQ-d0K"/>
                                 <include reference="MqA-mU-uKP"/>
                                 <include reference="Zng-go-E5M"/>
                                 <include reference="vxB-bq-YM3"/>
                                 <include reference="zCX-D6-vNR"/>
-                                <include reference="h16-tP-V0i"/>
                                 <include reference="7Xi-My-cHI"/>
                                 <include reference="XOx-vI-ceV"/>
                                 <include reference="gmm-fa-Sfj"/>

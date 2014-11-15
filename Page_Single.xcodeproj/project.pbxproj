@@ -52,6 +52,7 @@
 		53FB03301A17EB3F00549376 /* PageDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageDetailsViewController.swift; sourceTree = "<group>"; };
 		53FB03321A17F64400549376 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		53FB03341A17F87F00549376 /* LogOutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogOutViewController.swift; sourceTree = "<group>"; };
+		53FB03391A1806DB00549376 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +101,7 @@
 				53041F641A0DD88E0099DC44 /* Main.storyboard */,
 				53FB03341A17F87F00549376 /* LogOutViewController.swift */,
 				53FB03321A17F64400549376 /* SettingsViewController.swift */,
+				53FB03391A1806DB00549376 /* ViewController.h */,
 				532885351A15F96A007599C7 /* Database.swift */,
 				53041F671A0DD88E0099DC44 /* Images.xcassets */,
 				53041F691A0DD88E0099DC44 /* LaunchScreen.xib */,
