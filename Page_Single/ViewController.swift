@@ -50,6 +50,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
             
             // Initialize a user
             user.addProperties(1, name: "Melinda Kobayashi", username: "Melinda", password: "password", department: "Oncology", rank: "Fellow", onDutyStatus: 0)
+            let database = Database(url: "http://page-40339.onmodulus.net")
+            database.login(username: "Melinda", password: "password") {(succeeded: Bool, msg: String) -> () in
+                
+                println("succceeded is \(succeeded)")}
             shouldPerformSegueWithIdentifier("logInSegue", sender: sender)
         }
         

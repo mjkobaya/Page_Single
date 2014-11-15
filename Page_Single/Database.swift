@@ -43,35 +43,39 @@ class Database: NSObject {
             var strData = NSString(data: data, encoding: NSUTF8StringEncoding)
             println("Body: \(strData)")
             var err: NSError?
-            var json = NSJSONSerialization.JSONObjectWithData(data, options: .MutableLeaves, error: &err) as? NSDictionary
+            var json = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: &err) as NSDictionary
+            
+            var id: NSString = json["_id"] as NSString
+            println("id is \(id)")
+            
             
             var msg = "No message"
             
             // Did the JSONObjectWithData constructor return an error? If so, log the error to the console
-            if(err != nil) {
-                println(err!.localizedDescription)
-                let jsonStr = NSString(data: data, encoding: NSUTF8StringEncoding)
-                println("Error could not parse JSON: '\(jsonStr)'")
-                postCompleted(succeeded: false, msg: "Error")
-            }
-            else {
-                // The JSONObjectWithData constructor didn't return an error. But, we should still
-                // check and make sure that json has a value using optional binding.
-                if let parseJSON = json {
-                    // Okay, the parsedJSON is here, let's get the value for 'success' out of it
-                    if let success = parseJSON["success"] as? Bool {
-                        println("Succes: \(success)")
-                        postCompleted(succeeded: success, msg: "Logged in.")
-                    }
-                    return
-                }
-                else {
-                    // Woa, okay the json object was nil, something went worng. Maybe the server isn't running?
-                    let jsonStr = NSString(data: data, encoding: NSUTF8StringEncoding)
-                    println("Error could not parse JSON: \(jsonStr)")
-                    postCompleted(succeeded: false, msg: "Error")
-                }
-            }
+//            if(err != nil) {
+//                println(err!.localizedDescription)
+//                let jsonStr = NSString(data: data, encoding: NSUTF8StringEncoding)
+//                println("Error could not parse JSON: '\(jsonStr)'")
+//                postCompleted(succeeded: false, msg: "Error")
+//            }
+//            else {
+//                // The JSONObjectWithData constructor didn't return an error. But, we should still
+//                // check and make sure that json has a value using optional binding.
+//                if let parseJSON = json {
+//                    // Okay, the parsedJSON is here, let's get the value for 'success' out of it
+//                    if let success = parseJSON["success"] as? Bool {
+//                        println("Succes: \(success)")
+//                        postCompleted(succeeded: success, msg: "Logged in.")
+//                    }
+//                    return
+//                }
+//                else {
+//                    // Woa, okay the json object was nil, something went worng. Maybe the server isn't running?
+//                    let jsonStr = NSString(data: data, encoding: NSUTF8StringEncoding)
+//                    println("Error could not parse JSON: \(jsonStr)")
+//                    postCompleted(succeeded: false, msg: "Error")
+//                }
+//            }
         })
         
         task.resume()
