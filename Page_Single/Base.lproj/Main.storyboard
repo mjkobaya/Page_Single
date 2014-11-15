@@ -217,10 +217,27 @@
             </objects>
             <point key="canvasLocation" x="138" y="135.75"/>
         </scene>
+        <!--Log Out View Controller-->
+        <scene sceneID="1ek-83-i33">
+            <objects>
+                <viewController id="fKn-tj-p1p" customClass="LogOutViewController" customModule="Page_" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="f1e-L1-Onl"/>
+                        <viewControllerLayoutGuide type="bottom" id="Fm3-Oq-jzW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="GOA-r7-AQm">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="N8s-4J-Kpj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-508.5" y="907.5"/>
+        </scene>
         <!--Settings-->
         <scene sceneID="KDZ-Zz-TCg">
             <objects>
-                <viewController id="uUK-ns-bPm" sceneMemberID="viewController">
+                <viewController id="uUK-ns-bPm" customClass="SettingsViewController" customModule="Page_" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="taF-7x-XIm"/>
                         <viewControllerLayoutGuide type="bottom" id="jE8-mr-zq2"/>
