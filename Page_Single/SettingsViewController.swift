@@ -10,10 +10,6 @@ import UIKit
 
 class SettingsViewController: UIViewController {
 
-    @IBAction func logOutButtonPressed(sender: UIButton) {
-        self.performSegueWithIdentifier("unwindToLogin", sender: sender)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
