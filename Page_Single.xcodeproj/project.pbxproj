@@ -34,7 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		53041F5B1A0DD88E0099DC44 /* Page_Single.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Page_Single.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		53041F5B1A0DD88E0099DC44 /* docTalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = docTalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53041F5F1A0DD88E0099DC44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		53041F601A0DD88E0099DC44 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		53041F621A0DD88E0099DC44 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -85,7 +85,7 @@
 		53041F5C1A0DD88E0099DC44 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				53041F5B1A0DD88E0099DC44 /* Page_Single.app */,
+				53041F5B1A0DD88E0099DC44 /* docTalk.app */,
 				53041F701A0DD88E0099DC44 /* Page_SingleTests.xctest */,
 			);
 			name = Products;
@@ -158,7 +158,7 @@
 			);
 			name = Page_Single;
 			productName = Page_Single;
-			productReference = 53041F5B1A0DD88E0099DC44 /* Page_Single.app */;
+			productReference = 53041F5B1A0DD88E0099DC44 /* docTalk.app */;
 			productType = "com.apple.product-type.application";
 		};
 		53041F6F1A0DD88E0099DC44 /* Page_SingleTests */ = {
@@ -380,7 +380,7 @@
 				INFOPLIST_FILE = Page_Single/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = docTalk;
 				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
@@ -395,7 +395,7 @@
 				INFOPLIST_FILE = Page_Single/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = docTalk;
 				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
