@@ -12,15 +12,14 @@ class PageDetailsViewController: UIViewController {
     
     var user: User!
     var database: Database!
+    var sender: String!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
         
-        //        let labelFrame = CGRectMake(16, 183, 368, 602)
-        //        let label = UIView(frame: labelFrame)
-        //        label.backgroundColor = UIColor.orangeColor()
-        //        self.view.addSubview(label)
+        println("Sender passed is \(sender)")
         
     }
     

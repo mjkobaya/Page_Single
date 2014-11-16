@@ -8,19 +8,19 @@
 
 import UIKit
 
-@objc(InboxTableViewController) class InboxTableViewController: UITableViewController, UITableViewDelegate,
-UITableViewDataSource {
+@objc(InboxTableViewController) class InboxTableViewController: UITableViewController, UITableViewDelegate, UITableViewDataSource {
     
     var user: User!
     var database: Database!
     var messages = [Dictionary<String, String>()]
+    var sender = ""
     
-    let items = [["Dr. Misha Wong", "Hello test message"], ["more testing", "page contents length of message should carry off"]]
+    let items = [["Dr. Misha Wong", "FYI Call me back as soon as possible"], ["Dr. Aashay Vyas", "Consult MRN: 12345678 Patient consult meeting at 2"]]
     
     @IBOutlet var inboxTableView: UITableView!
     @IBAction func onDutySwitch(sender: UISwitch) {
         println("onDutySwitch")
-        println("user.username is \(user.username)")
+        println("Username passed to InboxTableView is \(user.username)")
     }
     
     @IBAction func unwindToInbox(s:UIStoryboardSegue) {
@@ -154,6 +154,7 @@ UITableViewDataSource {
             let svc = segue.destinationViewController as PageDetailsViewController;
             svc.user = self.user
             svc.database = self.database
+            svc.sender = self.sender
         }
     
     }
