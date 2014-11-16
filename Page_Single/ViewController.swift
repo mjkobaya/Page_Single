@@ -8,57 +8,66 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+@objc(ViewController)class ViewController: UIViewController, UITextFieldDelegate {
+    
+    // Member variables and constants
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var errorLogInLabel: UILabel!
     
     var status = 0
-    var user = User(i: true)
-
-//    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?)
-//    {
-//        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-//        
-//        // Custom initialization
-//        var user: User
-//    }
-//    
-//    required init(coder aDecoder: (NSCoder!))
-//    {
-//        super.init(coder: aDecoder)
-//    }
+    var user = User()
+    let database = Database(url: "http://page-40339.onmodulus.net")
     
+    @IBAction func unwindToLogin(s:UIStoryboardSegue) {
+        println("hello world")
+    }
+    
+    // When Log In button is pressed
     @IBAction func logInButton(sender: UIButton) {
         
         // TEST OUTPUT
         println(usernameTextField.text)
         println(passwordTextField.text)
         
-        // On Log In button click check database to see if user name
-        // and password match
-        // For now, hard code
-        
-        let logInSession = LogIn(username: usernameTextField.text, password: passwordTextField.text)
-        
-        // If username and password match, segue into navigation controller
-        if logInSession.match() == 1
-        {
-            self.status = 1
-            
-            // Initialize a user
-            user.addProperties(1, name: "Melinda Kobayashi", username: "Melinda", password: "password", department: "Oncology", rank: "Fellow", onDutyStatus: 0)
-            shouldPerformSegueWithIdentifier("logInSegue", sender: sender)
-        }
-        
-        // Else, update with "Username or password are incorrect"
-        else
-        {
-            shouldPerformSegueWithIdentifier("logInSegue", sender: sender)
+        // Ask database if login was a success
+        self.database.login(username: usernameTextField.text, password: passwordTextField.text)
+            {(succeeded: Bool, user: User) -> () in
+                
+                // Move to the UI thread
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    
+                    println("succeeded is \(succeeded)")
+                    if (succeeded)
+                    {
+                        self.user = user
+                        self.performSegueWithIdentifier("logInSegue", sender: sender)
+                    }
+                    else
+                    {
+                        self.errorLogInLabel.hidden = false
+                    }
+                })
         }
     }
     
+    
+    // Configure the return key to go to next text field or hide keyboard
+    func textFieldShouldReturn(textField: UITextField!) -> Bool {
+        if (textField == usernameTextField)
+        {
+            passwordTextField.becomeFirstResponder()
+        }
+            
+        else if (textField == passwordTextField)
+        {
+            textField.resignFirstResponder()
+        }
+        
+        return true
+    }
+    
+    // Pass the User object to the InboxTableViewController
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
     {
         // Pass info to InboxTableViewController
@@ -67,30 +76,45 @@ class ViewController: UIViewController {
             let nav: AnyObject = segue.destinationViewController
             var svc = nav.topViewController as InboxTableViewController;
             svc.user = self.user
+            svc.database = self.database
         }
     }
+    
+    // Perform the segue if status is 1. Show invalid username and password
+    // label if status is 0.
+    // Need to keep override function to override default to allow all segues
     override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool
     {
-        if self.status == 1
-        {
-            return true
-        }
-        
-        else
-        {
-            errorLogInLabel.hidden = false
-            return false
-        }
+        //        if self.status == 2
+        //        {
+        //            println("status 1 got called")
+        //            return true
+        //        }
+        //
+        //        else if self.status == 1
+        //        {
+        //            self.errorLogInLabel.hidden = false
+        //            return false
+        //        }
+        //        else
+        //        {
+        //            return false
+        //        }
+        return false
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        // Set ViewController as delegate for text fields
+        usernameTextField.delegate = self
+        passwordTextField.delegate = self
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
 }

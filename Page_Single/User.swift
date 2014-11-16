@@ -12,36 +12,42 @@ import UIKit
 
 class User: NSObject {
     
-    var id: Int // ID number of the user from database
-    var name: String // Name of user
-    var username: String // User's username
-    var password: String // User's password
-    var department: String // User's hospital department
-    var rank: String // User's rank
-    var onDutyStatus: Int // Integer 0 -> off duty, 1 -> on duty
+    var name = "default name" // Name of user
+    var username = "default username" // User's username
+    var department = "default department" // User's hospital department
+    var rank = "default rank" // User's rank
+    var onDutyStatus = "off" // String on / off
     
-    init(i: Bool)
+    func addProperties(#infoDict: [String : String])
     {
-        self.id = 0
-        self.name = ""
-        self.username = ""
-        self.password = ""
-        self.department = ""
-        self.rank = ""
-        self.onDutyStatus = 0
+        for (property, value) in infoDict
+        {
+            if (property == "name")
+            {
+                self.name = value
+            }
+            else if (property == "username")
+            {
+                self.username = value
+            }
+            else if (property == "department")
+            {
+                self.department = value
+            }
+            else if (property == "rank")
+            {
+                self.rank = value
+            }
+            else if (property == "onDutyStatus")
+            {
+                self.onDutyStatus = value
+            }
+            else
+            {
+                println("Error in User.addProperties: Property given is not a member of the User class")
+            }
+        }
+        
     }
     
-    func addProperties(id: Int, name: String, username: String,
-        password: String, department: String, rank: String,
-        onDutyStatus: Int)
-    {
-        self.id = id
-        self.name = name
-        self.username = username
-        self.password = password
-        self.department = department
-        self.rank = rank
-        self.onDutyStatus = onDutyStatus
-    }
-   
 }
