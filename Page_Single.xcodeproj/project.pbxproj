@@ -236,6 +236,7 @@
 			files = (
 				5310EA351A12DCF8008DB984 /* User.swift in Sources */,
 				5323CA931A135567003823C2 /* InboxTableViewController.swift in Sources */,
+				ED1884C91A16D6CA0090482C /* contactsTableViewController.swift in Sources */,
 				53041F631A0DD88E0099DC44 /* ViewController.swift in Sources */,
 				5362C9C81A0F61F000D13318 /* LogIn.swift in Sources */,
 				539CAE051A18382600048334 /* PageDetailsViewController.swift in Sources */,
