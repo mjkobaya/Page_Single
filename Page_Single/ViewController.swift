@@ -8,7 +8,7 @@
 
 import UIKit
 
-@objc(ViewController)class ViewController: UIViewController, UITextFieldDelegate {
+@objc(ViewController) class ViewController: UIViewController, UITextFieldDelegate {
     
     // Member variables and constants
     @IBOutlet weak var usernameTextField: UITextField!
@@ -20,7 +20,6 @@ import UIKit
     let database = Database(url: "http://page-40339.onmodulus.net")
     
     @IBAction func unwindToLogin(s:UIStoryboardSegue) {
-        println("hello world")
     }
     
     // When Log In button is pressed

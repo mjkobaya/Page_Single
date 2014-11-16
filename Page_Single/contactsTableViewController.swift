@@ -9,7 +9,10 @@
 import UIKit
 
 class contactsTableViewController: UITableViewController,UIPickerViewDataSource,UIPickerViewDelegate {
-
+    
+    var user: User!
+    var database: Database!
+    
     @IBOutlet weak var myPicker: UIPickerView!
     let pickerData = ["","Cardiology", "Neurology","Primary Care","Pediarics","Radiology"]
     
@@ -22,6 +25,8 @@ class contactsTableViewController: UITableViewController,UIPickerViewDataSource,
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        println("user.username is \(self.user.username)")
     }
     
     
@@ -109,15 +114,23 @@ class contactsTableViewController: UITableViewController,UIPickerViewDataSource,
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
+        
+        if (segue.identifier == "composeSegue")
+        {
+            // Need name of next view's view controller
+            let svc = segue.destinationViewController as ComposeViewController;
+            svc.user = self.user
+            svc.database = self.database
+        }
     }
-    */
+    
     
   
 

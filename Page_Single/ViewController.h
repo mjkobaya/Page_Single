@@ -6,13 +6,13 @@
 //  Copyright (c) 2014 Team 3. All rights reserved.
 //
 
-//#ifndef Page_Single_ViewController_h
-//#define Page_Single_ViewController_h
+#ifndef Page_Single_ViewController_h
+#define Page_Single_ViewController_h
 
-@interface ViewController //(Workaround)
+@interface ViewController (Workaround)
 
 -(IBAction)unwindToLogin: (UIStoryboardSegue *)segue;
 
 @end
 
-//#endif
+#endif

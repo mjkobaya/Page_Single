@@ -9,6 +9,9 @@
 import UIKit
 
 class ComposeViewController: UIViewController ,UIPickerViewDataSource,UIPickerViewDelegate {
+    
+    var user: User!
+    var database: Database!
 
   
     @IBOutlet weak var loadingBar: UIProgressView!
@@ -24,6 +27,8 @@ class ComposeViewController: UIViewController ,UIPickerViewDataSource,UIPickerVi
         picker2.delegate = self
         picker2.dataSource = self
         // Do any additional setup after loading the view.
+        
+        println("In ComposeViewController \(user.username)")
     }
     
     
@@ -61,14 +66,22 @@ class ComposeViewController: UIViewController ,UIPickerViewDataSource,UIPickerVi
 
     
     
-    /*
+    
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if (segue.identifier == "sendInboxSegue")
+        {
+            // Need name of next view's view controller
+            let svc = segue.destinationViewController as InboxTableViewController;
+            svc.user = self.user
+            svc.database = self.database
+        }
+        
     }
-    */
+
 
 }

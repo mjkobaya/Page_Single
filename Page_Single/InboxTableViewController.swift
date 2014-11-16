@@ -8,7 +8,7 @@
 
 import UIKit
 
-class InboxTableViewController: UITableViewController, UITableViewDelegate,
+@objc(InboxTableViewController) class InboxTableViewController: UITableViewController, UITableViewDelegate,
 UITableViewDataSource {
     
     var user: User!
@@ -21,6 +21,9 @@ UITableViewDataSource {
     @IBAction func onDutySwitch(sender: UISwitch) {
         println("onDutySwitch")
         println("user.username is \(user.username)")
+    }
+    
+    @IBAction func unwindToInbox(s:UIStoryboardSegue) {
     }
     
     override func viewDidLoad() {
@@ -133,22 +136,27 @@ UITableViewDataSource {
     
     // MARK: - Navigation
     
-    /*
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     
     // Pass info to InboxTableViewController
-    if (segue.identifier == "newPageSegue")
-    {
-    // Need name of next view's view controller
-    //let svc: AnyObject = segue.destinationViewController as ContactViewController;
-    //svc.user = self.user
-    //svc.database = self.database
-    }
+        if (segue.identifier == "newPageSegue")
+        {
+            let svc = segue.destinationViewController as contactsTableViewController;
+            svc.user = self.user
+            svc.database = self.database
+        }
+        else if (segue.identifier == "detailsSegue")
+        {
+            let svc = segue.destinationViewController as PageDetailsViewController;
+            svc.user = self.user
+            svc.database = self.database
+        }
     
     }
-    */
+    
     
 }
