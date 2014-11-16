@@ -467,6 +467,7 @@
                             </textField>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="OhQ-IT-IiD">
                                 <rect key="frame" x="0.0" y="64" width="600" height="2"/>
+                                <color key="progressTintColor" red="1" green="0.61827570354122563" blue="0.045931568608945539" alpha="1" colorSpace="calibratedRGB"/>
                             </progressView>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YsG-VF-89f" propertyAccessControl="localizable">
                                 <rect key="frame" x="0.0" y="154" width="600" height="162"/>
@@ -639,11 +640,11 @@
                     </navigationItem>
                     <connections>
                         <outlet property="MRNtext" destination="Pni-UH-YIj" id="Jbt-6b-QTf"/>
+                        <outlet property="loadingBar" destination="OhQ-IT-IiD" id="T8O-yN-MJJ"/>
                         <outlet property="myLabel" destination="XQX-HS-Pey" id="Lct-5C-UJj"/>
                         <outlet property="newPage" destination="u4i-AQ-Cni" id="CT1-jl-ihl"/>
                         <outlet property="picker2" destination="YsG-VF-89f" id="O63-xq-Lbd"/>
                         <outlet property="quickReplies" destination="ORz-Dz-Iau" id="Rhs-6m-FQ3"/>
-                        <outlet property="send" destination="2xH-De-Fz8" id="bB4-jY-EBx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GmS-LH-UXZ" userLabel="First Responder" sceneMemberID="firstResponder"/>

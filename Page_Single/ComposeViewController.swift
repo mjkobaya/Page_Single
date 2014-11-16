@@ -11,7 +11,7 @@ import UIKit
 class ComposeViewController: UIViewController ,UIPickerViewDataSource,UIPickerViewDelegate {
 
   
-    @IBOutlet weak var send: UIBarButtonItem!
+    @IBOutlet weak var loadingBar: UIProgressView!
     @IBOutlet weak var quickReplies: UILabel!
     @IBOutlet weak var myLabel: UILabel!
     @IBOutlet weak var MRNtext: UITextField!
