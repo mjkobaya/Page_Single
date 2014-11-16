@@ -40,6 +40,7 @@ import UIKit
                     if (succeeded)
                     {
                         self.user = user
+                        self.errorLogInLabel.hidden = true
                         self.performSegueWithIdentifier("logInSegue", sender: sender)
                     }
                     else
