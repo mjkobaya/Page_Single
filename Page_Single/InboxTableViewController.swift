@@ -89,12 +89,12 @@ import UIKit
         self.inboxTableView.reloadData()
         self.refresh.endRefreshing()
         
-        let count = self.messages.count - 1
-        for index in 0...count
-        {
-            println("index is \(index)")
-            self.senderUsernameArray.append(self.messages[index]["originalSender"]!)
-        }
+//        let count = self.messages.count - 1
+//        for index in 0...count
+//        {
+//            println("index is \(index)")
+//            self.senderUsernameArray.append(self.messages[index]["originalSender"]!)
+//        }
         
 //        for username in self.senderUsernameArray
 //        {
@@ -155,7 +155,9 @@ import UIKit
         cell.textLabel.text = self.messages[indexPath.row]["originalSender"]
         //Unwrap cell.detailTextLabel with ! when know it's not nil b/c of
         //? option on the cell type
-        cell.detailTextLabel!.text = self.messages[indexPath.row]["message"]
+        var message = self.messages[indexPath.row]["message"]
+        println("message is \(message)")
+        cell.detailTextLabel!.text = message
         
 //        // Configure the cell...
 //        cell.textLabel.text = self.items[indexPath.row][0]
@@ -170,8 +172,8 @@ import UIKit
         
         self.sender = self.messages[indexPath.row]["originalSender"]!
         self.message = self.messages[indexPath.row]["message"]!
-        let test = self.onDutyClinicians[0]["rank"]! as String
-        println("clinician is of rank \(test)")
+        //let test = self.onDutyClinicians[0]["rank"]! as String
+        //println("clinician is of rank \(test)")
         self.performSegueWithIdentifier("detailsSegue", sender: sender)
         //self.presentViewController(alert, animated: true, completion: nil)
         
@@ -180,6 +182,10 @@ import UIKit
     override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool
     {
         if (identifier == "settingsSegue")
+        {
+            return true
+        }
+        else if (identifier == "newPageSegue")
         {
             return true
         }
