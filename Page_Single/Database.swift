@@ -188,6 +188,7 @@ class Database: NSObject {
     {
         // http://page-40339.onmodulus.net/mobile/messages?email=Melinda
         let url: String = self.url + "/mobile/messages?email=" + username
+        println(url)
         let method = "GET"
         let nsurl = NSURL(string: url)
         
@@ -195,13 +196,13 @@ class Database: NSObject {
         var session = NSURLSession.sharedSession()
         request.HTTPMethod = method
         
-        var params = ["email" : username]
+        //var params = ["email" : username]
         
         var err: NSError?
-        request.HTTPBody = NSJSONSerialization.dataWithJSONObject(params,
-            options: nil, error: &err)
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        //request.HTTPBody = NSJSONSerialization.dataWithJSONObject(params,
+        //    options: nil, error: &err)
+        //request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        //request.addValue("application/json", forHTTPHeaderField: "Accept")
         
         var task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
             println("Response: \(response)")
@@ -209,6 +210,7 @@ class Database: NSObject {
             println("Body: \(strData)")
             var err: NSError?
             var json = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: &err) as NSArray?
+            println("Check")
             
             // How to access the values in dictionary. Must be downcasted type
             // get rid of Optional() wrapping

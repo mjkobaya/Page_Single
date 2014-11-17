@@ -14,6 +14,8 @@ import UIKit
     var database: Database!
     var messages = [Dictionary<String, String>()]
     var sender = ""
+    var message = ""
+    var refresh = UIRefreshControl()
     
     let items = [["Dr. Misha Wong", "FYI Call me back as soon as possible"], ["Dr. Aashay Vyas", "Consult MRN: 12345678 Patient consult meeting at 2"]]
     
@@ -55,12 +57,26 @@ import UIKit
                     println("Something went wrong")
                 }
             })
+            
+            self.inboxTableView.reloadData()
+            self.refresh = UIRefreshControl()
+            self.refresh.attributedTitle = NSAttributedString(string: "Pull to refersh")
+            self.refresh.addTarget(self, action: "refreshTable:", forControlEvents: UIControlEvents.ValueChanged)
+            self.tableView.addSubview(self.refresh)
         }
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func refreshTable(sender:AnyObject)
+    {
+        // Code to refresh table view
+        self.refresh.beginRefreshing()
+        self.inboxTableView.reloadData()
+        self.refresh.endRefreshing()
     }
     
     // MARK: - Table view data source
@@ -74,8 +90,8 @@ import UIKit
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        //return self.messages.count
-        return 2
+        return self.messages.count
+        //return 4
     }
     
     
@@ -83,20 +99,35 @@ import UIKit
         var cell = tableView.dequeueReusableCellWithIdentifier("subtitleCell", forIndexPath: indexPath) as UITableViewCell
         
         // Configure the cell...
-        //cell.textLabel.text = self.messages[indexPath.row]["originalSender"]
-        // Unwrap cell.detailTextLabel with ! when know it's not nil b/c of
-        // ? option on the cell type
-        //cell.detailTextLabel!.text = self.messages[indexPath.row]["message"]
+        cell.textLabel.text = self.messages[indexPath.row]["originalSender"]
+        //Unwrap cell.detailTextLabel with ! when know it's not nil b/c of
+        //? option on the cell type
+        cell.detailTextLabel!.text = self.messages[indexPath.row]["message"]
         
-        // Configure the cell...
-        cell.textLabel.text = self.items[indexPath.row][0]
-        // Unwrap cell.detailTextLabel with ! when know it's not nil b/c of
-        // ? option on the cell type
-        cell.detailTextLabel!.text = self.items[indexPath.row][1]
+//        // Configure the cell...
+//        cell.textLabel.text = self.items[indexPath.row][0]
+//        // Unwrap cell.detailTextLabel with ! when know it's not nil b/c of
+//        // ? option on the cell type
+//        cell.detailTextLabel!.text = self.items[indexPath.row][1]
         
         return cell
     }
     
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        self.sender = self.messages[indexPath.row]["originalSender"]!
+        self.message = self.messages[indexPath.row]["message"]!
+        self.performSegueWithIdentifier("detailsSegue", sender: sender)
+        //self.presentViewController(alert, animated: true, completion: nil)
+        
+    }
+    
+    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool
+    {
+        return false
+    }
+    
+
     
     /*
     // Override to support conditional editing of the table view.
@@ -155,6 +186,7 @@ import UIKit
             svc.user = self.user
             svc.database = self.database
             svc.sender = self.sender
+            svc.message = self.message
         }
     
     }

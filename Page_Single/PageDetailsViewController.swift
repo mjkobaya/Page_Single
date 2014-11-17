@@ -13,6 +13,7 @@ class PageDetailsViewController: UIViewController {
     var user: User!
     var database: Database!
     var sender: String!
+    var message: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +21,7 @@ class PageDetailsViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         println("Sender passed is \(sender)")
+        println("message passed is \(message)")
         
     }
     
