@@ -13,6 +13,7 @@ class ComposeViewController: UIViewController ,UIPickerViewDataSource,UIPickerVi
     var user: User!
     var database: Database!
 
+
   
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var quickReplies: UILabel!
@@ -22,7 +23,7 @@ class ComposeViewController: UIViewController ,UIPickerViewDataSource,UIPickerVi
     @IBOutlet weak var activeTextField: UITextField!
 
     
-    let pickerData = [["","Consult", "Quick Question", "FYI"],["", "Meet me at the office", "Call me ASAP","This is so much better than a pager!!","There is a patient seeking your medical attention","Developers > Doctors"]
+    let pickerData = [["","Consult", "Quick Question", "FYI", "Nursing", "Pharmacy"],["", "Call back ASAP", "Working on patient ","Need to staff with attending","In a meeting","My recs are", "Text you recs ASAP", "Stop by After rounds", "Thank you for the consult"]
         ]
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -109,7 +110,7 @@ class ComposeViewController: UIViewController ,UIPickerViewDataSource,UIPickerVi
     func updateLabel(){
         let size = pickerData[0][picker2.selectedRowInComponent(0)]
         let topping = pickerData[1][picker2.selectedRowInComponent(1)]
-        myLabel.text = size + " " + topping
+        myLabel.text = size + ": " + topping
     }
     
     // Configure the return key to go to next text field or hide keyboard
