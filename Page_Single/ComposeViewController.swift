@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ComposeViewController: UIViewController ,UIPickerViewDataSource,UIPickerViewDelegate {
+class ComposeViewController: UIViewController ,UIPickerViewDataSource,UIPickerViewDelegate, UITextFieldDelegate {
     
     var user: User!
     var database: Database!
@@ -26,6 +26,9 @@ class ComposeViewController: UIViewController ,UIPickerViewDataSource,UIPickerVi
         super.viewDidLoad()
         picker2.delegate = self
         picker2.dataSource = self
+        
+        MRNtext.delegate = self
+        newPage.delegate = self
         // Do any additional setup after loading the view.
         
         println("In ComposeViewController \(user.username)")
@@ -54,18 +57,29 @@ class ComposeViewController: UIViewController ,UIPickerViewDataSource,UIPickerVi
         myLabel.text = size + " " + topping
     }
     
+    // Configure the return key to go to next text field or hide keyboard
+    func textFieldShouldReturn(textField: UITextField!) -> Bool {
+        if (textField == MRNtext)
+        {
+            textField.resignFirstResponder()
+        }
+            
+        else if (textField == newPage)
+        {
+            textField.resignFirstResponder()
+        }
+        
+        return true
+    }
+
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    //@IBAction func sendPage(sender: AnyObject) {
-    //    println(myLabel.text + " " + newPage)
-    //}
-
-    
-    
+ 
     
     // MARK: - Navigation
     

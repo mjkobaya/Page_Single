@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -141,10 +142,10 @@
                                 <exclude reference="V98-u1-NO0"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="4LF-3j-b3F"/>
-                                <exclude reference="tjw-Xb-xmn"/>
                                 <exclude reference="3uz-YW-4sN"/>
                                 <exclude reference="h04-1O-cv6"/>
+                                <exclude reference="4LF-3j-b3F"/>
+                                <exclude reference="tjw-Xb-xmn"/>
                                 <exclude reference="Txk-Ha-ry0"/>
                                 <exclude reference="nen-ui-TWa"/>
                                 <exclude reference="2AF-9M-rwG"/>
@@ -161,10 +162,10 @@
                                 <include reference="V98-u1-NO0"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="4LF-3j-b3F"/>
-                                <include reference="tjw-Xb-xmn"/>
                                 <include reference="3uz-YW-4sN"/>
                                 <include reference="h04-1O-cv6"/>
+                                <include reference="4LF-3j-b3F"/>
+                                <include reference="tjw-Xb-xmn"/>
                                 <include reference="Txk-Ha-ry0"/>
                                 <include reference="nen-ui-TWa"/>
                                 <include reference="2AF-9M-rwG"/>
@@ -326,6 +327,7 @@
                         <viewControllerLayoutGuide type="bottom" id="suS-z6-orf"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="E3B-GP-dgy">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mSE-oh-I33">
@@ -421,9 +423,9 @@
                                 <exclude reference="8mq-Xb-AAV"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="6wT-w5-hwz"/>
                                 <exclude reference="lkA-vd-sTz"/>
                                 <exclude reference="sks-FY-2XB"/>
+                                <exclude reference="6wT-w5-hwz"/>
                                 <exclude reference="1XL-9d-kFk"/>
                                 <exclude reference="DuL-5G-OTY"/>
                                 <exclude reference="OOr-9f-DOk"/>
@@ -438,9 +440,9 @@
                                 <include reference="8mq-Xb-AAV"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="6wT-w5-hwz"/>
                                 <include reference="lkA-vd-sTz"/>
                                 <include reference="sks-FY-2XB"/>
+                                <include reference="6wT-w5-hwz"/>
                                 <include reference="1XL-9d-kFk"/>
                                 <include reference="DuL-5G-OTY"/>
                                 <include reference="OOr-9f-DOk"/>
@@ -659,6 +661,12 @@
                                 <exclude reference="ORz-Dz-Iau"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="KZP-oI-jMs"/>
+                                <exclude reference="SaL-gT-J1x"/>
+                                <exclude reference="0cT-2n-yJ2"/>
+                                <exclude reference="6cJ-4y-fgT"/>
+                                <exclude reference="Xiz-gZ-bDx"/>
+                                <exclude reference="c1i-Xw-nx2"/>
                                 <exclude reference="6VD-3C-1LQ"/>
                                 <exclude reference="G5N-NO-8fc"/>
                                 <exclude reference="b65-9A-C8Y"/>
@@ -666,15 +674,9 @@
                                 <exclude reference="I1T-iE-ang"/>
                                 <exclude reference="JsL-eX-e17"/>
                                 <exclude reference="fFl-2a-oDh"/>
-                                <exclude reference="KZP-oI-jMs"/>
-                                <exclude reference="SaL-gT-J1x"/>
                                 <exclude reference="D53-FQ-C0P"/>
                                 <exclude reference="eP9-bt-vUC"/>
                                 <exclude reference="y0G-Ai-UE1"/>
-                                <exclude reference="0cT-2n-yJ2"/>
-                                <exclude reference="6cJ-4y-fgT"/>
-                                <exclude reference="Xiz-gZ-bDx"/>
-                                <exclude reference="c1i-Xw-nx2"/>
                                 <exclude reference="96f-Nk-haD"/>
                                 <exclude reference="POv-i0-zSH"/>
                                 <exclude reference="aeu-nV-07g"/>
@@ -686,6 +688,12 @@
                                 <include reference="ORz-Dz-Iau"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="KZP-oI-jMs"/>
+                                <include reference="SaL-gT-J1x"/>
+                                <include reference="0cT-2n-yJ2"/>
+                                <include reference="6cJ-4y-fgT"/>
+                                <include reference="Xiz-gZ-bDx"/>
+                                <include reference="c1i-Xw-nx2"/>
                                 <include reference="6VD-3C-1LQ"/>
                                 <include reference="G5N-NO-8fc"/>
                                 <include reference="b65-9A-C8Y"/>
@@ -693,15 +701,9 @@
                                 <include reference="I1T-iE-ang"/>
                                 <include reference="JsL-eX-e17"/>
                                 <include reference="fFl-2a-oDh"/>
-                                <include reference="KZP-oI-jMs"/>
-                                <include reference="SaL-gT-J1x"/>
                                 <include reference="D53-FQ-C0P"/>
                                 <include reference="eP9-bt-vUC"/>
                                 <include reference="y0G-Ai-UE1"/>
-                                <include reference="0cT-2n-yJ2"/>
-                                <include reference="6cJ-4y-fgT"/>
-                                <include reference="Xiz-gZ-bDx"/>
-                                <include reference="c1i-Xw-nx2"/>
                                 <include reference="96f-Nk-haD"/>
                                 <include reference="POv-i0-zSH"/>
                                 <include reference="aeu-nV-07g"/>
