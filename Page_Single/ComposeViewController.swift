@@ -14,12 +14,14 @@ class ComposeViewController: UIViewController ,UIPickerViewDataSource,UIPickerVi
     var database: Database!
 
   
-    @IBOutlet weak var loadingBar: UIProgressView!
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var quickReplies: UILabel!
     @IBOutlet weak var myLabel: UILabel!
     @IBOutlet weak var MRNtext: UITextField!
-    @IBOutlet weak var newPage: UITextField!
     @IBOutlet weak var picker2: UIPickerView!
+    @IBOutlet weak var activeTextField: UITextField!
+
+    
     let pickerData = [["","Consult", "Quick Question", "FYI"],["", "Meet me at the office", "Call me ASAP","This is so much better than a pager!!","There is a patient seeking your medical attention","Developers > Doctors"]
         ]
     override func viewDidLoad() {
@@ -28,14 +30,67 @@ class ComposeViewController: UIViewController ,UIPickerViewDataSource,UIPickerVi
         picker2.dataSource = self
         
         MRNtext.delegate = self
-        newPage.delegate = self
+        activeTextField.delegate = self
         // Do any additional setup after loading the view.
         
         println("In ComposeViewController \(user.username)")
+        
+        registerForKeyboardNotifications()
     }
     
+    //MARK: - Keyboard Management Methods
     
+    // Call this method somewhere in your view controller setup code.
+    func registerForKeyboardNotifications() {
+        let notificationCenter = NSNotificationCenter.defaultCenter()
+        notificationCenter.addObserver(self,
+            selector: "keyboardWillBeShown:",
+            name: UIKeyboardWillShowNotification,
+            object: nil)
+        notificationCenter.addObserver(self,
+            selector: "keyboardWillBeHidden:",
+            name: UIKeyboardWillHideNotification,
+            object: nil)
+    }
     
+    // Called when the UIKeyboardDidShowNotification is sent.
+    func keyboardWillBeShown(sender: NSNotification) {
+        let info: NSDictionary = sender.userInfo!
+        let value: NSValue = info.valueForKey(UIKeyboardFrameBeginUserInfoKey) as NSValue
+        let keyboardSize: CGSize = value.CGRectValue().size
+        let contentInsets: UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize.height, 0.0)
+        scrollView.contentInset = contentInsets
+        scrollView.scrollIndicatorInsets = contentInsets
+        
+        // If active text field is hidden by keyboard, scroll it so it's visible
+        // Your app might not need or want this behavior.
+        var aRect: CGRect = self.view.frame
+        aRect.size.height -= keyboardSize.height
+        let activeTextFieldRect: CGRect? = activeTextField?.frame
+        let activeTextFieldOrigin: CGPoint? = activeTextFieldRect?.origin
+        if (!CGRectContainsPoint(aRect, activeTextFieldOrigin!)) {
+            scrollView.scrollRectToVisible(activeTextFieldRect!, animated:true)
+        }
+    }
+    
+    // Called when the UIKeyboardWillHideNotification is sent
+    func keyboardWillBeHidden(sender: NSNotification) {
+        let contentInsets: UIEdgeInsets = UIEdgeInsetsZero
+        scrollView.contentInset = contentInsets
+        scrollView.scrollIndicatorInsets = contentInsets
+    }
+    
+    //MARK: - UITextField Delegate Methods
+    
+//    func textFieldDidBeginEditing(textField: UITextField!) {
+//        activeTextField = textField
+//        scrollView.scrollEnabled = true
+//    }
+//    
+//    func textFieldDidEndEditing(textField: UITextField!) {
+//        activeTextField = nil
+//        scrollView.scrollEnabled = false
+//    }
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return pickerData.count
@@ -64,7 +119,7 @@ class ComposeViewController: UIViewController ,UIPickerViewDataSource,UIPickerVi
             textField.resignFirstResponder()
         }
             
-        else if (textField == newPage)
+        else if (textField == activeTextField)
         {
             textField.resignFirstResponder()
         }
@@ -73,6 +128,7 @@ class ComposeViewController: UIViewController ,UIPickerViewDataSource,UIPickerVi
     }
 
     
+   
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
