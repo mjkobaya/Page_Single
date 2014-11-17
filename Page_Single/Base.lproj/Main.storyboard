@@ -361,7 +361,7 @@
                         <barButtonItem key="leftBarButtonItem" image="Settings" id="dGT-hc-Icv">
                             <color key="tintColor" red="0.99215692280000001" green="0.52549022440000004" blue="0.16078431900000001" alpha="1" colorSpace="deviceRGB"/>
                             <connections>
-                                <segue destination="uUK-ns-bPm" kind="show" id="j1f-D2-ZBv"/>
+                                <segue destination="uUK-ns-bPm" kind="show" identifier="settingsSegue" id="j1f-D2-ZBv"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="compose" id="usd-BR-Hbm">

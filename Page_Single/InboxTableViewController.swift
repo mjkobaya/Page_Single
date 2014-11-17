@@ -17,6 +17,11 @@ import UIKit
     var message = ""
     var refresh = UIRefreshControl()
     var onDutyClinicians = []
+    var senderName = ""
+    var userInfo = ["" : ""]
+    var senderUsernameArray = [String]()
+    var status = 0
+    var senderNameArray = [String]()
     
     let items = [["Dr. Misha Wong", "FYI Call me back as soon as possible"], ["Dr. Aashay Vyas", "Consult MRN: 12345678 Patient consult meeting at 2"]]
     
@@ -59,23 +64,7 @@ import UIKit
                 }
             })
         }
-    
-        database.getSearchUsers(department: "oncology") { (succeeded, onDutyClinicians) -> () in
-            
-            // Move to the UI thread
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                
-                println("succeeded is \(succeeded)")
-                if (succeeded)
-                {
-                    self.onDutyClinicians = onDutyClinicians as NSArray
-                }
-                else
-                {
-                    println("Something went wrong")
-                }
-            })
-        }
+        
         
         println("check")
         
@@ -99,6 +88,38 @@ import UIKit
         self.refresh.beginRefreshing()
         self.inboxTableView.reloadData()
         self.refresh.endRefreshing()
+        
+        let count = self.messages.count - 1
+        for index in 0...count
+        {
+            println("index is \(index)")
+            self.senderUsernameArray.append(self.messages[index]["originalSender"]!)
+        }
+        
+//        for username in self.senderUsernameArray
+//        {
+//            database.getUserInfo(username: username) { (succeeded, userInfo) -> () in
+//                
+//                // Move to the UI thread
+//                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+//                    
+//                    println("succeeded is \(succeeded)")
+//                    if (succeeded)
+//                    {
+//                        let userInfoDict = userInfo as Dictionary<String, String>
+//                        self.senderNameArray.append(userInfoDict["firstName"]!)
+//                        self.status = 2
+//                        self.inboxTableView.reloadData()
+//                    }
+//                    else
+//                    {
+//                        println("Something went wrong")
+//                    }
+//                })
+//            }
+//        }
+        
+        //self.status = 1
     }
     
     // MARK: - Table view data source
@@ -120,6 +141,16 @@ import UIKit
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCellWithIdentifier("subtitleCell", forIndexPath: indexPath) as UITableViewCell
         
+        if (self.status == 2)
+        {
+            // Configure the cell...
+            cell.textLabel.text = self.senderNameArray[indexPath.row]
+            //Unwrap cell.detailTextLabel with ! when know it's not nil b/c of
+            //? option on the cell type
+            cell.detailTextLabel!.text = self.messages[indexPath.row]["message"]
+            
+        }
+            
         // Configure the cell...
         cell.textLabel.text = self.messages[indexPath.row]["originalSender"]
         //Unwrap cell.detailTextLabel with ! when know it's not nil b/c of
@@ -139,7 +170,6 @@ import UIKit
         
         self.sender = self.messages[indexPath.row]["originalSender"]!
         self.message = self.messages[indexPath.row]["message"]!
-        
         let test = self.onDutyClinicians[0]["rank"]! as String
         println("clinician is of rank \(test)")
         self.performSegueWithIdentifier("detailsSegue", sender: sender)
@@ -149,6 +179,11 @@ import UIKit
     
     override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool
     {
+        if (identifier == "settingsSegue")
+        {
+            return true
+        }
+        
         return false
     }
     
