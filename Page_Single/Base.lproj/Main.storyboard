@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -394,8 +395,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mSE-oh-I33">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="62" id="44O-1f-uiY"/>
-                                    <constraint firstAttribute="height" constant="21" id="XIA-QW-6c2"/>
+                                    <constraint firstAttribute="width" constant="62" id="etu-3j-AMR"/>
                                 </constraints>
                                 <attributedString key="attributedText">
                                     <fragment content="From:">
@@ -409,106 +409,82 @@
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="44O-1f-uiY"/>
-                                        <exclude reference="XIA-QW-6c2"/>
+                                        <exclude reference="etu-3j-AMR"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact">
                                     <mask key="constraints">
-                                        <include reference="44O-1f-uiY"/>
-                                        <include reference="XIA-QW-6c2"/>
-                                    </mask>
-                                </variation>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HVJ-oU-7eQ">
-                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="104" id="QdQ-1d-tao"/>
-                                    <constraint firstAttribute="height" constant="21" id="fGU-Hh-V0r"/>
-                                </constraints>
-                                <attributedString key="attributedText">
-                                    <fragment content="Page Type:">
-                                        <attributes>
-                                            <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <font key="NSFont" size="19" name="HelveticaNeue"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <nil key="highlightedColor"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="QdQ-1d-tao"/>
-                                        <exclude reference="fGU-Hh-V0r"/>
-                                    </mask>
-                                </variation>
-                                <variation key="heightClass=regular-widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="QdQ-1d-tao"/>
-                                        <include reference="fGU-Hh-V0r"/>
+                                        <include reference="etu-3j-AMR"/>
                                     </mask>
                                 </variation>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8mq-Xb-AAV">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <attributedString key="attributedText">
-                                    <fragment content="Test message contents lalalalal hello length of page gateway is closing.">
-                                        <attributes>
-                                            <font key="NSFont" size="17" name="HelveticaNeue"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
+                                <attributedString key="attributedText"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <variation key="heightClass=regular-widthClass=compact">
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 </variation>
                             </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z4K-ec-1yV">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <attributedString key="attributedText"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="8mq-Xb-AAV" firstAttribute="leading" secondItem="E3B-GP-dgy" secondAttribute="leadingMargin" id="1XL-9d-kFk"/>
-                            <constraint firstItem="mSE-oh-I33" firstAttribute="top" secondItem="w7M-mu-Ifh" secondAttribute="bottom" constant="24" id="6wT-w5-hwz"/>
-                            <constraint firstAttribute="bottom" secondItem="8mq-Xb-AAV" secondAttribute="bottom" constant="20" symbolic="YES" id="DuL-5G-OTY"/>
-                            <constraint firstItem="8mq-Xb-AAV" firstAttribute="trailing" secondItem="E3B-GP-dgy" secondAttribute="trailingMargin" id="OOr-9f-DOk"/>
-                            <constraint firstItem="8mq-Xb-AAV" firstAttribute="top" secondItem="HVJ-oU-7eQ" secondAttribute="bottom" constant="8" symbolic="YES" id="Vzm-kY-wCw"/>
-                            <constraint firstItem="HVJ-oU-7eQ" firstAttribute="leading" secondItem="mSE-oh-I33" secondAttribute="leading" id="lkA-vd-sTz"/>
-                            <constraint firstItem="8mq-Xb-AAV" firstAttribute="leading" secondItem="HVJ-oU-7eQ" secondAttribute="leading" id="qbm-Wu-dX3"/>
-                            <constraint firstItem="HVJ-oU-7eQ" firstAttribute="top" secondItem="mSE-oh-I33" secondAttribute="bottom" constant="8" symbolic="YES" id="sks-FY-2XB"/>
+                            <constraint firstItem="8mq-Xb-AAV" firstAttribute="leading" secondItem="E3B-GP-dgy" secondAttribute="leadingMargin" id="1Oz-BK-KJE"/>
+                            <constraint firstItem="z4K-ec-1yV" firstAttribute="leading" secondItem="mSE-oh-I33" secondAttribute="trailing" constant="8" symbolic="YES" id="6k3-3i-c3B"/>
+                            <constraint firstItem="8mq-Xb-AAV" firstAttribute="leading" secondItem="mSE-oh-I33" secondAttribute="leading" id="6kl-4P-cni"/>
+                            <constraint firstAttribute="bottom" secondItem="8mq-Xb-AAV" secondAttribute="bottom" constant="20" symbolic="YES" id="92r-S1-NUb"/>
+                            <constraint firstItem="8mq-Xb-AAV" firstAttribute="top" secondItem="mSE-oh-I33" secondAttribute="bottom" constant="8" symbolic="YES" id="A28-9t-Fhf"/>
+                            <constraint firstItem="8mq-Xb-AAV" firstAttribute="trailing" secondItem="E3B-GP-dgy" secondAttribute="trailingMargin" id="DQl-ME-QAa"/>
+                            <constraint firstItem="z4K-ec-1yV" firstAttribute="top" secondItem="mSE-oh-I33" secondAttribute="top" id="Ldt-yu-Njh"/>
+                            <constraint firstItem="mSE-oh-I33" firstAttribute="top" secondItem="w7M-mu-Ifh" secondAttribute="bottom" constant="24" id="MYm-NT-EnU"/>
+                            <constraint firstItem="mSE-oh-I33" firstAttribute="baseline" secondItem="z4K-ec-1yV" secondAttribute="firstBaseline" id="YlB-wg-QvU"/>
+                            <constraint firstItem="8mq-Xb-AAV" firstAttribute="trailing" secondItem="z4K-ec-1yV" secondAttribute="trailing" id="cf1-Ti-4hF"/>
+                            <constraint firstItem="mSE-oh-I33" firstAttribute="baseline" secondItem="z4K-ec-1yV" secondAttribute="baseline" id="ljd-VT-xNX"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="mSE-oh-I33"/>
-                                <exclude reference="HVJ-oU-7eQ"/>
                                 <exclude reference="8mq-Xb-AAV"/>
+                                <exclude reference="z4K-ec-1yV"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="lkA-vd-sTz"/>
-                                <exclude reference="sks-FY-2XB"/>
-                                <exclude reference="6wT-w5-hwz"/>
-                                <exclude reference="1XL-9d-kFk"/>
-                                <exclude reference="DuL-5G-OTY"/>
-                                <exclude reference="OOr-9f-DOk"/>
-                                <exclude reference="Vzm-kY-wCw"/>
-                                <exclude reference="qbm-Wu-dX3"/>
+                                <exclude reference="MYm-NT-EnU"/>
+                                <exclude reference="YlB-wg-QvU"/>
+                                <exclude reference="ljd-VT-xNX"/>
+                                <exclude reference="1Oz-BK-KJE"/>
+                                <exclude reference="6kl-4P-cni"/>
+                                <exclude reference="92r-S1-NUb"/>
+                                <exclude reference="A28-9t-Fhf"/>
+                                <exclude reference="DQl-ME-QAa"/>
+                                <exclude reference="cf1-Ti-4hF"/>
+                                <exclude reference="6k3-3i-c3B"/>
+                                <exclude reference="Ldt-yu-Njh"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
                                 <include reference="mSE-oh-I33"/>
-                                <include reference="HVJ-oU-7eQ"/>
                                 <include reference="8mq-Xb-AAV"/>
+                                <include reference="z4K-ec-1yV"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="lkA-vd-sTz"/>
-                                <include reference="sks-FY-2XB"/>
-                                <include reference="6wT-w5-hwz"/>
-                                <include reference="1XL-9d-kFk"/>
-                                <include reference="DuL-5G-OTY"/>
-                                <include reference="OOr-9f-DOk"/>
-                                <include reference="Vzm-kY-wCw"/>
-                                <include reference="qbm-Wu-dX3"/>
+                                <include reference="MYm-NT-EnU"/>
+                                <include reference="YlB-wg-QvU"/>
+                                <include reference="ljd-VT-xNX"/>
+                                <include reference="1Oz-BK-KJE"/>
+                                <include reference="6kl-4P-cni"/>
+                                <include reference="92r-S1-NUb"/>
+                                <include reference="A28-9t-Fhf"/>
+                                <include reference="DQl-ME-QAa"/>
+                                <include reference="cf1-Ti-4hF"/>
+                                <include reference="6k3-3i-c3B"/>
+                                <include reference="Ldt-yu-Njh"/>
                             </mask>
                         </variation>
                     </view>
@@ -519,6 +495,10 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="fromLabel" destination="z4K-ec-1yV" id="1qh-gN-1KA"/>
+                        <outlet property="messageTextView" destination="8mq-Xb-AAV" id="aZt-s2-AFE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9td-Bn-Kas" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

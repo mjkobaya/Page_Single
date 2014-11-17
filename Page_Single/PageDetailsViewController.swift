@@ -15,6 +15,9 @@ class PageDetailsViewController: UIViewController {
     var sender: String!
     var message: String!
     
+    @IBOutlet weak var fromLabel: UILabel!
+    @IBOutlet weak var messageTextView: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -22,6 +25,9 @@ class PageDetailsViewController: UIViewController {
         
         println("Sender passed is \(sender)")
         println("message passed is \(message)")
+        
+        self.fromLabel.text = sender
+        self.messageTextView.text = message
         
     }
     

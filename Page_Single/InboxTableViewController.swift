@@ -16,6 +16,7 @@ import UIKit
     var sender = ""
     var message = ""
     var refresh = UIRefreshControl()
+    var onDutyClinicians = []
     
     let items = [["Dr. Misha Wong", "FYI Call me back as soon as possible"], ["Dr. Aashay Vyas", "Consult MRN: 12345678 Patient consult meeting at 2"]]
     
@@ -57,14 +58,35 @@ import UIKit
                     println("Something went wrong")
                 }
             })
+        }
+    
+        database.getSearchUsers(department: "oncology") { (succeeded, onDutyClinicians) -> () in
             
+            // Move to the UI thread
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                
+                println("succeeded is \(succeeded)")
+                if (succeeded)
+                {
+                    self.onDutyClinicians = onDutyClinicians as NSArray
+                }
+                else
+                {
+                    println("Something went wrong")
+                }
+            })
+        }
+        
+        println("check")
+        
             self.inboxTableView.reloadData()
             self.refresh = UIRefreshControl()
             self.refresh.attributedTitle = NSAttributedString(string: "Pull to refersh")
             self.refresh.addTarget(self, action: "refreshTable:", forControlEvents: UIControlEvents.ValueChanged)
             self.tableView.addSubview(self.refresh)
-        }
+        
     }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -117,6 +139,9 @@ import UIKit
         
         self.sender = self.messages[indexPath.row]["originalSender"]!
         self.message = self.messages[indexPath.row]["message"]!
+        
+        let test = self.onDutyClinicians[0]["rank"]! as String
+        println("clinician is of rank \(test)")
         self.performSegueWithIdentifier("detailsSegue", sender: sender)
         //self.presentViewController(alert, animated: true, completion: nil)
         
