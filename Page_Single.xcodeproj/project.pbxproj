@@ -54,6 +54,14 @@
 		ED1884C81A16D6CA0090482C /* contactsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = contactsTableViewController.swift; sourceTree = "<group>"; };
 		ED1884CA1A16F8C10090482C /* ComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
 		ED483E4F1A18629C00F09D8B /* InboxTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InboxTableViewController.h; sourceTree = "<group>"; };
+		EDE94FEB1A1AD2F300BE177E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EDE94FEC1A1AD2F300BE177E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		EDE94FEE1A1AD2F300BE177E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EDE94FF11A1AD2F300BE177E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EDE94FF31A1AD2F300BE177E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		EDE94FF61A1AD2F300BE177E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		EDE950011A1AD2F300BE177E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EDE950021A1AD2F300BE177E /* docTalkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = docTalkTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +87,8 @@
 			children = (
 				53041F5D1A0DD88E0099DC44 /* Page_Single */,
 				53041F731A0DD88E0099DC44 /* Page_SingleTests */,
+				EDE94FE91A1AD2F300BE177E /* docTalk */,
+				EDE94FFF1A1AD2F300BE177E /* docTalkTests */,
 			);
 			sourceTree = "<group>";
 		};
@@ -137,6 +147,44 @@
 			isa = PBXGroup;
 			children = (
 				53041F751A0DD88E0099DC44 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EDE94FE91A1AD2F300BE177E /* docTalk */ = {
+			isa = PBXGroup;
+			children = (
+				EDE94FEC1A1AD2F300BE177E /* AppDelegate.swift */,
+				EDE94FEE1A1AD2F300BE177E /* ViewController.swift */,
+				EDE94FF01A1AD2F300BE177E /* Main.storyboard */,
+				EDE94FF31A1AD2F300BE177E /* Images.xcassets */,
+				EDE94FF51A1AD2F300BE177E /* LaunchScreen.xib */,
+				EDE94FEA1A1AD2F300BE177E /* Supporting Files */,
+			);
+			path = docTalk;
+			sourceTree = "<group>";
+		};
+		EDE94FEA1A1AD2F300BE177E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EDE94FEB1A1AD2F300BE177E /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EDE94FFF1A1AD2F300BE177E /* docTalkTests */ = {
+			isa = PBXGroup;
+			children = (
+				EDE950021A1AD2F300BE177E /* docTalkTests.swift */,
+				EDE950001A1AD2F300BE177E /* Supporting Files */,
+			);
+			path = docTalkTests;
+			sourceTree = "<group>";
+		};
+		EDE950001A1AD2F300BE177E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EDE950011A1AD2F300BE177E /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -286,6 +334,22 @@
 			isa = PBXVariantGroup;
 			children = (
 				53041F6A1A0DD88E0099DC44 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		EDE94FF01A1AD2F300BE177E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EDE94FF11A1AD2F300BE177E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		EDE94FF51A1AD2F300BE177E /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EDE94FF61A1AD2F300BE177E /* Base */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";

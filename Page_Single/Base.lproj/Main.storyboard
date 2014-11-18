@@ -571,7 +571,7 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="q61-J5-ZvR" id="Lj3-5e-0pf">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yku-HM-twJ">
+                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yku-HM-twJ">
                                             <rect key="frame" x="8" y="6" width="584" height="30"/>
                                             <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <state key="normal">
@@ -760,7 +760,6 @@
                             <constraint firstItem="vXf-Mr-Bny" firstAttribute="bottom" secondItem="tAL-tl-Bq1" secondAttribute="top" id="oy4-fG-JSH"/>
                             <constraint firstAttribute="trailing" secondItem="vXf-Mr-Bny" secondAttribute="trailing" id="pCb-v4-BgC"/>
                         </constraints>
-                        <variation key="heightClass=regular-widthClass=compact"/>
                     </view>
                     <navigationItem key="navigationItem" title="Compose" id="CuN-Kw-U1r">
                         <barButtonItem key="rightBarButtonItem" title="Send" id="2xH-De-Fz8">
