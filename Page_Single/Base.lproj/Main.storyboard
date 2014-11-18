@@ -501,13 +501,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="Page Details" id="ZyU-TB-DY0">
-                        <barButtonItem key="rightBarButtonItem" title="Reply" id="Apc-5o-IvD">
-                            <connections>
-                                <segue destination="RLW-rD-JwT" kind="show" identifier="replySegue" id="Izd-Fc-Elq"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Page Details" id="ZyU-TB-DY0"/>
                     <connections>
                         <outlet property="fromLabel" destination="z4K-ec-1yV" id="1qh-gN-1KA"/>
                         <outlet property="messageTextView" destination="8mq-Xb-AAV" id="aZt-s2-AFE"/>
@@ -594,6 +588,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="RLW-rD-JwT" kind="show" identifier="composeSegue" id="EuB-i8-liU"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -601,9 +598,7 @@
                             <outlet property="delegate" destination="Kic-3Z-XXn" id="Hon-rv-jwD"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Contact" id="Xmm-qd-OhP">
-                        <barButtonItem key="rightBarButtonItem" title="Compose" id="MaC-Bi-niF"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Contact" id="Xmm-qd-OhP"/>
                     <connections>
                         <outlet property="contactsTableView" destination="CAU-rg-xfW" id="gTk-tU-92g"/>
                         <outlet property="myPicker" destination="KS5-j7-dMb" id="zu9-Xn-Fuo"/>

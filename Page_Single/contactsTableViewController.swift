@@ -20,8 +20,8 @@ class contactsTableViewController: UITableViewController,UIPickerViewDataSource,
     @IBOutlet var contactsTableView: UITableView!
     @IBOutlet weak var myPicker: UIPickerView!
     let pickerData = ["", "Radiology", "Pediatrics", "Oncology", "Cardiology"]
-    let onDutyClinicians = [["username" : "AashayVyas", "rank" : "Resident"],
-        ["username" : "MelindaKobayashi", "rank" : "Fellow"], ["username" : "AashayVyas", "rank" : "Resident"]]
+    let onDutyClinicians = [["username" : "AashayVyas", "rank" : "Fellow"],
+        ["username" : "HannaLiu", "rank" : "Resident"], ["username" : "AashayVyas", "rank" : "Fellow"]]
     
     
     override func viewDidLoad() {
@@ -144,6 +144,7 @@ class contactsTableViewController: UITableViewController,UIPickerViewDataSource,
         self.sender = self.onDutyClinicians[indexPath.row]["username"]!
         //let test = self.onDutyClinicians[0]["rank"]! as String
         //println("clinician is of rank \(test)")
+        self.status = 1
         self.performSegueWithIdentifier("composeSegue", sender: sender)
         //self.presentViewController(alert, animated: true, completion: nil)
         
@@ -210,6 +211,23 @@ class contactsTableViewController: UITableViewController,UIPickerViewDataSource,
 
     
     // MARK: - Navigation
+    
+    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool
+    {
+        if (identifier == "composeSegue")
+        {
+            if (self.status == 1)
+            {
+                return true
+            }
+            else
+            {
+                return false
+            }
+        }
+        
+        return false
+    }
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -222,11 +240,10 @@ class contactsTableViewController: UITableViewController,UIPickerViewDataSource,
             let svc = segue.destinationViewController as ComposeViewController;
             svc.user = self.user
             svc.database = self.database
+            svc.sender = self.sender
         }
     }
     
     
-  
-
     
 }
