@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "53041F5A1A0DD88E0099DC44"
-               BuildableName = "Page_Single.app"
+               BuildableName = "docTalk.app"
                BlueprintName = "Page_Single"
                ReferencedContainer = "container:Page_Single.xcodeproj">
             </BuildableReference>
@@ -57,7 +57,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "53041F5A1A0DD88E0099DC44"
-            BuildableName = "Page_Single.app"
+            BuildableName = "docTalk.app"
             BlueprintName = "Page_Single"
             ReferencedContainer = "container:Page_Single.xcodeproj">
          </BuildableReference>
@@ -76,7 +76,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "53041F5A1A0DD88E0099DC44"
-            BuildableName = "Page_Single.app"
+            BuildableName = "docTalk.app"
             BlueprintName = "Page_Single"
             ReferencedContainer = "container:Page_Single.xcodeproj">
          </BuildableReference>
@@ -94,7 +94,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "53041F5A1A0DD88E0099DC44"
-            BuildableName = "Page_Single.app"
+            BuildableName = "docTalk.app"
             BlueprintName = "Page_Single"
             ReferencedContainer = "container:Page_Single.xcodeproj">
          </BuildableReference>

@@ -12,6 +12,8 @@ class ComposeViewController: UIViewController ,UIPickerViewDataSource,UIPickerVi
     
     var user: User!
     var database: Database!
+    var sender: String!
+    var message: String!
 
 
   
@@ -34,10 +36,14 @@ class ComposeViewController: UIViewController ,UIPickerViewDataSource,UIPickerVi
         activeTextField.delegate = self
         // Do any additional setup after loading the view.
         
-        println("In ComposeViewController \(user.username)")
+        println("In ComposeViewController user name is\(user.username)")
+        println("In ComposeViewController Sender passed is \(sender)")
+
         
         registerForKeyboardNotifications()
     }
+  
+    
     
     //MARK: - Keyboard Management Methods
     
@@ -140,6 +146,21 @@ class ComposeViewController: UIViewController ,UIPickerViewDataSource,UIPickerVi
     
     // MARK: - Navigation
     
+    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool
+    {
+        if (identifier == "unwindToInbox")
+        {
+            message = myLabel.text! + " " + activeTextField.text
+            println("In ComposeViewController message to be sent is \(self.message)")
+            self.database.sendMessage(sender: user.username, receiver: self.sender, message: self.message, postCompleted: { (succeeded) -> () in
+                println("succeeded is \(succeeded)")
+                })
+            return true
+        }
+        
+        return false
+    }
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
@@ -154,5 +175,8 @@ class ComposeViewController: UIViewController ,UIPickerViewDataSource,UIPickerVi
         
     }
 
+
+    
+   
 
 }
