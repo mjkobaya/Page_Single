@@ -218,7 +218,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QLl-Zc-e0Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="xha-wy-aOm" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="341" y="1100"/>
+            <point key="canvasLocation" x="162" y="1089"/>
         </scene>
         <!--Pages-->
         <scene sceneID="UEm-ym-j4B">
@@ -472,13 +472,13 @@
                                 <exclude reference="FEw-OS-xJN"/>
                                 <exclude reference="FHx-Xd-HuA"/>
                                 <exclude reference="wvs-Fr-1wa"/>
+                                <exclude reference="Rqd-qB-cXz"/>
+                                <exclude reference="WDM-dW-HyE"/>
                                 <exclude reference="0MP-Ys-1U9"/>
                                 <exclude reference="2x6-va-0xL"/>
                                 <exclude reference="5Gn-8K-Dcs"/>
                                 <exclude reference="MD8-wD-svK"/>
                                 <exclude reference="SLQ-nw-Zat"/>
-                                <exclude reference="Rqd-qB-cXz"/>
-                                <exclude reference="WDM-dW-HyE"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -491,13 +491,13 @@
                                 <include reference="FEw-OS-xJN"/>
                                 <include reference="FHx-Xd-HuA"/>
                                 <include reference="wvs-Fr-1wa"/>
+                                <include reference="Rqd-qB-cXz"/>
+                                <include reference="WDM-dW-HyE"/>
                                 <include reference="0MP-Ys-1U9"/>
                                 <include reference="2x6-va-0xL"/>
                                 <include reference="5Gn-8K-Dcs"/>
                                 <include reference="MD8-wD-svK"/>
                                 <include reference="SLQ-nw-Zat"/>
-                                <include reference="Rqd-qB-cXz"/>
-                                <include reference="WDM-dW-HyE"/>
                             </mask>
                         </variation>
                     </view>
@@ -760,52 +760,7 @@
                             <constraint firstItem="vXf-Mr-Bny" firstAttribute="bottom" secondItem="tAL-tl-Bq1" secondAttribute="top" id="oy4-fG-JSH"/>
                             <constraint firstAttribute="trailing" secondItem="vXf-Mr-Bny" secondAttribute="trailing" id="pCb-v4-BgC"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="KZP-oI-jMs"/>
-                                <exclude reference="SaL-gT-J1x"/>
-                                <exclude reference="0cT-2n-yJ2"/>
-                                <exclude reference="6cJ-4y-fgT"/>
-                                <exclude reference="Xiz-gZ-bDx"/>
-                                <exclude reference="c1i-Xw-nx2"/>
-                                <exclude reference="6VD-3C-1LQ"/>
-                                <exclude reference="G5N-NO-8fc"/>
-                                <exclude reference="b65-9A-C8Y"/>
-                                <exclude reference="eoP-Yv-1KB"/>
-                                <exclude reference="I1T-iE-ang"/>
-                                <exclude reference="JsL-eX-e17"/>
-                                <exclude reference="fFl-2a-oDh"/>
-                                <exclude reference="D53-FQ-C0P"/>
-                                <exclude reference="eP9-bt-vUC"/>
-                                <exclude reference="y0G-Ai-UE1"/>
-                                <exclude reference="96f-Nk-haD"/>
-                                <exclude reference="POv-i0-zSH"/>
-                                <exclude reference="aeu-nV-07g"/>
-                            </mask>
-                        </variation>
-                        <variation key="heightClass=regular-widthClass=compact">
-                            <mask key="constraints">
-                                <include reference="KZP-oI-jMs"/>
-                                <include reference="SaL-gT-J1x"/>
-                                <include reference="0cT-2n-yJ2"/>
-                                <include reference="6cJ-4y-fgT"/>
-                                <include reference="Xiz-gZ-bDx"/>
-                                <include reference="c1i-Xw-nx2"/>
-                                <include reference="6VD-3C-1LQ"/>
-                                <include reference="G5N-NO-8fc"/>
-                                <include reference="b65-9A-C8Y"/>
-                                <include reference="eoP-Yv-1KB"/>
-                                <include reference="I1T-iE-ang"/>
-                                <include reference="JsL-eX-e17"/>
-                                <include reference="fFl-2a-oDh"/>
-                                <include reference="D53-FQ-C0P"/>
-                                <include reference="eP9-bt-vUC"/>
-                                <include reference="y0G-Ai-UE1"/>
-                                <include reference="96f-Nk-haD"/>
-                                <include reference="POv-i0-zSH"/>
-                                <include reference="aeu-nV-07g"/>
-                            </mask>
-                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact"/>
                     </view>
                     <navigationItem key="navigationItem" title="Compose" id="CuN-Kw-U1r">
                         <barButtonItem key="rightBarButtonItem" title="Send" id="2xH-De-Fz8">
