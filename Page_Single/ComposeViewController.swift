@@ -152,6 +152,9 @@ class ComposeViewController: UIViewController ,UIPickerViewDataSource,UIPickerVi
         {
             message = myLabel.text! + " " + activeTextField.text
             println("In ComposeViewController message to be sent is \(self.message)")
+            self.database.sendMessage(sender: user.username, receiver: self.sender, message: self.message, postCompleted: { (succeeded) -> () in
+                println("succeeded is \(succeeded)")
+                })
             return true
         }
         
