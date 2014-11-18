@@ -765,7 +765,8 @@
                         <barButtonItem key="rightBarButtonItem" title="Send" id="2xH-De-Fz8">
                             <color key="tintColor" red="0.99215692281723022" green="0.52549022436141968" blue="0.16078431904315948" alpha="1" colorSpace="deviceRGB"/>
                             <connections>
-                                <segue destination="OC1-IK-03I" kind="unwind" unwindAction="unwindToInbox:" id="XE7-9h-7ll"/>
+                                <action selector="sendMessage:" destination="RLW-rD-JwT" id="RQf-O1-7fR"/>
+                                <segue destination="OC1-IK-03I" kind="unwind" identifier="unwindToInbox" unwindAction="unwindToInbox:" id="XE7-9h-7ll"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -804,7 +805,7 @@
         <image name="Settings" width="20" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="mQd-NT-74s"/>
+        <segue reference="Izd-Fc-Elq"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.99215692280000001" green="0.52549022440000004" blue="0.16078431900000001" alpha="1" colorSpace="deviceRGB"/>
 </document>
