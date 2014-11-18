@@ -51,7 +51,7 @@ import UIKit
         database.getMessages(username: user.username) { (succeeded, messages) -> () in
             
             // Move to the UI thread
-            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            dispatch_barrier_async(dispatch_get_main_queue(), { () -> Void in
                 
                 println("succeeded is \(succeeded)")
                 if (succeeded)
@@ -62,6 +62,7 @@ import UIKit
                 {
                     println("Something went wrong")
                 }
+                return
             })
         }
         

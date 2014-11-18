@@ -539,55 +539,60 @@
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="KS5-j7-dMb" secondAttribute="trailing" id="E7b-Ox-f98"/>
+                                <constraint firstItem="KS5-j7-dMb" firstAttribute="top" secondItem="BxT-Eg-chM" secondAttribute="top" id="Hrf-ms-HqQ"/>
                                 <constraint firstItem="KS5-j7-dMb" firstAttribute="top" secondItem="BxT-Eg-chM" secondAttribute="top" id="Njc-E7-s0k"/>
-                                <constraint firstItem="KS5-j7-dMb" firstAttribute="leading" secondItem="BxT-Eg-chM" secondAttribute="leading" id="TTa-TY-Zgi"/>
-                                <constraint firstItem="KS5-j7-dMb" firstAttribute="top" secondItem="BxT-Eg-chM" secondAttribute="top" constant="-2" id="YH3-YH-tvD"/>
+                                <constraint firstAttribute="trailing" secondItem="KS5-j7-dMb" secondAttribute="trailing" id="Nwu-YB-uGb"/>
+                                <constraint firstItem="KS5-j7-dMb" firstAttribute="leading" secondItem="BxT-Eg-chM" secondAttribute="leading" id="Psg-im-ZAF"/>
                                 <constraint firstItem="KS5-j7-dMb" firstAttribute="top" secondItem="BxT-Eg-chM" secondAttribute="top" constant="-2" id="cmr-v5-dtW"/>
-                                <constraint firstAttribute="trailing" secondItem="KS5-j7-dMb" secondAttribute="trailing" id="nd2-UX-MAX"/>
+                                <constraint firstItem="KS5-j7-dMb" firstAttribute="top" secondItem="BxT-Eg-chM" secondAttribute="top" id="kbj-Zb-qoh"/>
                                 <constraint firstItem="KS5-j7-dMb" firstAttribute="leading" secondItem="BxT-Eg-chM" secondAttribute="leading" id="p2w-AY-QKh"/>
                             </constraints>
                             <variation key="default">
                                 <mask key="constraints">
-                                    <exclude reference="TTa-TY-Zgi"/>
-                                    <exclude reference="YH3-YH-tvD"/>
-                                    <exclude reference="nd2-UX-MAX"/>
+                                    <exclude reference="Hrf-ms-HqQ"/>
+                                    <exclude reference="Nwu-YB-uGb"/>
+                                    <exclude reference="Psg-im-ZAF"/>
+                                    <exclude reference="kbj-Zb-qoh"/>
                                 </mask>
                             </variation>
                             <variation key="heightClass=regular-widthClass=compact">
                                 <mask key="constraints">
                                     <exclude reference="E7b-Ox-f98"/>
+                                    <include reference="Hrf-ms-HqQ"/>
                                     <exclude reference="Njc-E7-s0k"/>
-                                    <include reference="TTa-TY-Zgi"/>
-                                    <include reference="YH3-YH-tvD"/>
+                                    <include reference="Nwu-YB-uGb"/>
+                                    <include reference="Psg-im-ZAF"/>
                                     <exclude reference="cmr-v5-dtW"/>
-                                    <include reference="nd2-UX-MAX"/>
+                                    <include reference="kbj-Zb-qoh"/>
                                     <exclude reference="p2w-AY-QKh"/>
                                 </mask>
                             </variation>
                         </view>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="departmentCell" id="q61-J5-ZvR">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="clinician" textLabel="5p6-Wd-LOe" detailTextLabel="6yW-7t-Ln2" style="IBUITableViewCellStyleSubtitle" id="q61-J5-ZvR">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="q61-J5-ZvR" id="Lj3-5e-0pf">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yku-HM-twJ">
-                                            <rect key="frame" x="8" y="6" width="584" height="30"/>
-                                            <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <state key="normal">
-                                                <attributedString key="attributedTitle"/>
-                                            </state>
-                                            <connections>
-                                                <segue destination="RLW-rD-JwT" kind="show" identifier="" id="5JA-1e-Gfb"/>
-                                            </connections>
-                                        </button>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5p6-Wd-LOe">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                            <variation key="heightClass=regular-widthClass=compact">
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            </variation>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6yW-7t-Ln2">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                            <variation key="heightClass=regular-widthClass=compact">
+                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            </variation>
+                                        </label>
                                     </subviews>
-                                    <constraints>
-                                        <constraint firstItem="yku-HM-twJ" firstAttribute="bottom" secondItem="Lj3-5e-0pf" secondAttribute="bottomMargin" id="Ddf-cm-gVJ"/>
-                                        <constraint firstItem="yku-HM-twJ" firstAttribute="centerY" secondItem="Lj3-5e-0pf" secondAttribute="centerY" id="IrN-zi-8IQ"/>
-                                        <constraint firstItem="yku-HM-twJ" firstAttribute="trailing" secondItem="Lj3-5e-0pf" secondAttribute="trailingMargin" id="Otf-FX-GkI"/>
-                                        <constraint firstItem="yku-HM-twJ" firstAttribute="leading" secondItem="Lj3-5e-0pf" secondAttribute="leadingMargin" id="SLb-bo-A6X"/>
-                                    </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -597,13 +602,10 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Contact" id="Xmm-qd-OhP">
-                        <barButtonItem key="rightBarButtonItem" title="Compose" id="MaC-Bi-niF">
-                            <connections>
-                                <segue destination="RLW-rD-JwT" kind="show" identifier="composeSegue" id="mQd-NT-74s"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Compose" id="MaC-Bi-niF"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="contactsTableView" destination="CAU-rg-xfW" id="gTk-tU-92g"/>
                         <outlet property="myPicker" destination="KS5-j7-dMb" id="zu9-Xn-Fuo"/>
                         <outlet property="searchDisplayController" destination="gO9-Z8-ACh" id="aVd-qS-rOn"/>
                     </connections>
@@ -618,7 +620,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="1688" y="908"/>
+            <point key="canvasLocation" x="1687.5" y="907.5"/>
         </scene>
         <!--Compose-->
         <scene sceneID="wiM-10-qpe">
@@ -803,8 +805,5 @@
     <resources>
         <image name="Settings" width="20" height="20"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="mQd-NT-74s"/>
-    </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.99215692280000001" green="0.52549022440000004" blue="0.16078431900000001" alpha="1" colorSpace="deviceRGB"/>
 </document>

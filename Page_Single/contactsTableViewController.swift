@@ -12,9 +12,17 @@ class contactsTableViewController: UITableViewController,UIPickerViewDataSource,
     
     var user: User!
     var database: Database!
+    var pickerSelection = ""
+    var onDuty = [[String : String]]()
+    var status = 0
+    var sender = ""
     
+    @IBOutlet var contactsTableView: UITableView!
     @IBOutlet weak var myPicker: UIPickerView!
-    let pickerData = ["","Cardiology", "Neurology","Primary Care","Pediarics","Radiology"]
+    let pickerData = ["", "Radiology", "Pediatrics", "Oncology", "Cardiology"]
+    let onDutyClinicians = [["username" : "AashayVyas", "rank" : "Resident"],
+        ["username" : "MelindaKobayashi", "rank" : "Fellow"], ["username" : "AashayVyas", "rank" : "Resident"]]
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,10 +34,53 @@ class contactsTableViewController: UITableViewController,UIPickerViewDataSource,
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
-        println("user.username is \(self.user.username)")
+        println("In contactsTableViewController user.username is \(self.user.username)")
+        
     }
     
-    
+//    func getOnDutyClinicians()
+//    {
+//        database.getSearchUsers(department: self.pickerSelection) { (succeeded, onDutyClinicians) -> () in
+//            
+//            // Move to the UI thread
+//            // Suspend getMessages queue
+//            dispatch_suspend(dispatch_get_main_queue())
+//            
+//            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), { () -> Void in
+//                
+//                println("succeeded is \(succeeded)")
+//                if (succeeded)
+//                {
+//                    let limit = onDutyClinicians.count - 1
+//                    for index in 0...limit
+//                    {
+//                        var tempDict = [String : String]()
+//                        let d = onDutyClinicians[index] as NSDictionary
+//                        for (key, value) in d
+//                        {
+//                            if (key as String != "local")
+//                            {
+//                                let k: String = key as String
+//                                let v: String = value as String
+//                                println("k is \(k)")
+//                                println("v is \(v)")
+//                                tempDict.updateValue(v, forKey: k)
+//                            }
+//                        }
+//                        self.onDuty.append(tempDict)
+//                    }
+//                    //onDutyClinicians as Array<Dictionary<String, String>>
+//                }
+//                    
+//                else
+//                {
+//                    println("Something went wrong")
+//                }
+//                self.contactsTableView.reloadData()
+//            })
+//        }
+//
+//    }
     //MARK: - Delegates and data sources
     //MARK: Data Sources
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
@@ -43,6 +94,25 @@ class contactsTableViewController: UITableViewController,UIPickerViewDataSource,
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
         return pickerData[row]
     }
+    
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
+    {
+//        // Reset onDuty to count 0
+//        //self.onDuty = [[String : String]]()
+//        
+//        // Set self.pickerSelection to the currently selected department
+//        self.pickerSelection = pickerData[row]
+//        
+//        //Get the onDutyClinicians in the department
+//        getOnDutyClinicians()
+//        
+//        // Reload table view
+//        self.contactsTableView.reloadData()
+//        println("contactsTableView data was reloaded")
+        self.contactsTableView.reloadData()
+        
+    }
+
     
     //func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
     //   myLabel.text = pickerData[row]
@@ -66,18 +136,42 @@ class contactsTableViewController: UITableViewController,UIPickerViewDataSource,
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return 0
+        return self.onDutyClinicians.count
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        self.sender = self.onDutyClinicians[indexPath.row]["username"]!
+        //let test = self.onDutyClinicians[0]["rank"]! as String
+        //println("clinician is of rank \(test)")
+        self.performSegueWithIdentifier("composeSegue", sender: sender)
+        //self.presentViewController(alert, animated: true, completion: nil)
+        
     }
 
-    /*
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("clinician", forIndexPath: indexPath) as UITableViewCell
 
+//        // Configure the cell...
+//        println("outside of if onDutyClinicians has count \(self.onDuty.count)")
+//        if (self.onDuty.count != 0)
+//        {
+//            let a = self.onDuty[indexPath.row]["rank"]
+//            cell.textLabel.text = a
+//            println(a)
+//        }
+        
         // Configure the cell...
+        cell.textLabel.text = self.onDutyClinicians[indexPath.row]["rank"]
+        //Unwrap cell.detailTextLabel with ! when know it's not nil b/c of
+        //? option on the cell type
+        var message = self.onDutyClinicians[indexPath.row]["username"]
+        cell.detailTextLabel!.text = message
 
         return cell
     }
-    */
+
 
     /*
     // Override to support conditional editing of the table view.

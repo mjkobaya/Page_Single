@@ -267,7 +267,7 @@ class Database: NSObject {
     
     // Get user for search
     func getSearchUsers(#department: String,
-        postCompleted: (succeeded: Bool, onDutyClinicians: AnyObject) -> ())
+        postCompleted: (succeeded: Bool, onDutyClinicians: NSArray) -> ())
     {
         // http://page-40339.onmodulus.net/mobile/search/department?department=oncology
         let url: String = self.url + "/mobile/search/department?department=" + department
